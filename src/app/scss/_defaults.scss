@@ -21,8 +21,11 @@ main {
   @include breakpoint(medium) {
     margin-top: rem(-80);
   }
-
   @include breakpoint(large) {
+    margin-top: rem(-100);
+  }
+
+  @include breakpoint(xlarge) {
     margin-top: rem(-120);
   }
 }

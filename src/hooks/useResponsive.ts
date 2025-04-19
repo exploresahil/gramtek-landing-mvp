@@ -10,7 +10,7 @@ const getBreakpoint = (width: number): Breakpoint => {
 };
 
 interface UseResponsiveReturn {
-  breakpoint: Breakpoint | null; // start with null to avoid mismatches
+  breakpoint: Breakpoint | null;
   isMobile: boolean;
   isTablet: boolean;
   isDesktop: boolean;
@@ -18,9 +18,7 @@ interface UseResponsiveReturn {
   useBreakpoint: (width: number) => Breakpoint;
 }
 
-// Responsive hook implementation
 const useResponsive = (): UseResponsiveReturn => {
-  // Initialize with window width if available, otherwise null
   const [breakpoint, setBreakpoint] = useState<Breakpoint | null>(() => {
     if (typeof window !== 'undefined') {
       return getBreakpoint(window.innerWidth);
@@ -28,7 +26,6 @@ const useResponsive = (): UseResponsiveReturn => {
     return null;
   });
 
-  // Don't consider responsive until breakpoint is determined
   const isMobile = breakpoint === "small";
   const isTablet = breakpoint === "medium";
   const isDesktop = breakpoint === "large";

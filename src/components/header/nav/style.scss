@@ -18,7 +18,6 @@ $nav_gap_large: rem(40);
   }
 
   @include breakpoint(large) {
-    font-size: rem(18);
     gap: $nav_gap_large;
   }
 

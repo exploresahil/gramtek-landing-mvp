@@ -88,14 +88,14 @@ $e_quart: cubic-bezier(0.76, 0, 0.24, 1);
 @mixin full_width {
   width: 100vw;
   max-width: 100%;
-  padding: 0 4vw;
+  padding-inline: 4vw;
 
   @include breakpoint(medium) {
-    padding: 0 8vw;
+    padding-inline: 8vw;
   }
 
   @include breakpoint(large) {
-    padding: 0 13vw;
+    padding-inline: 13vw;
   }
 }
 
