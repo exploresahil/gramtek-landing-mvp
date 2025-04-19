@@ -1,5 +1,11 @@
 import MenuIcon from "@/components/icons/MenuIcon";
 import "./style.scss";
+import {
+  CurrentDistributionIocon,
+  EconomicImpactIcon,
+  OurReachIcon,
+  TotalBeneficiariesIcon,
+} from "@/components/icons/MissionIcons";
 
 //*---------↓ Mission Content ↓---------*//
 
@@ -13,25 +19,25 @@ const missionData = {
 
   cardsData: [
     {
-      icon: <MenuIcon size={iconSize} />,
+      icon: <OurReachIcon />,
       title: "Our Reach",
       numbers: "210*",
       subtitle: "Villages",
     },
     {
-      icon: <MenuIcon size={iconSize} />,
+      icon: <CurrentDistributionIocon />,
       title: "Current Distribution",
       numbers: "210*",
       subtitle: "Pads/month",
     },
     {
-      icon: <MenuIcon size={iconSize} />,
+      icon: <EconomicImpactIcon />,
       title: "Economic Impact",
       numbers: "200",
       subtitle: "Women Employed",
     },
     {
-      icon: <MenuIcon size={iconSize} />,
+      icon: <TotalBeneficiariesIcon />,
       title: "Total Beneficiaries",
       numbers: "1 lac*",
       subtitle: "Women",

@@ -8,7 +8,17 @@
   align-items: center;
   text-align: center;
   overflow: hidden;
+  position: relative;
   @include full_width;
+
+  @include breakpoint(medium) {
+    height: 50vh;
+  }
+
+  @include breakpoint(large) {
+    height: 100vh;
+    height: 100dvh;
+  }
 
   .hero_container {
     display: flex;

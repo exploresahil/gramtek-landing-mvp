@@ -11,11 +11,8 @@
   @include full_width;
 
   @include breakpoint(medium) {
-    height: 50vh;
-  }
-
-  @include breakpoint(large) {
-    height: 100vh;
+    gap: rem(20);
+    padding-block: rem(80);
   }
 
   h1,
@@ -31,10 +28,6 @@
     @include breakpoint(medium) {
       font-size: rem(20);
     }
-
-    @include breakpoint(xlarge) {
-      font-size: rem(28);
-    }
   }
 
   h2 {
@@ -47,11 +40,6 @@
 
     @include breakpoint(medium) {
       font-size: rem(50);
-    }
-
-    @include breakpoint(xlarge) {
-      font-size: rem(30);
-      font-weight: 600;
     }
   }
 
@@ -68,31 +56,22 @@
 
   .cards_container {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: rem(24);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     margin-top: rem(30);
+    gap: rem(10);
 
     @include breakpoint(medium) {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: rem(24);
-    }
-
-    @include breakpoint(xlarge) {
-      padding-inline: 4vw;
-      gap: rem(10);
+      grid-template-columns: repeat(2, 1fr);
     }
 
     .card {
       width: 100%;
       height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      display: grid;
+      place-items: center;
       gap: rem(26);
-      padding: rem(80) rem(10);
+      padding: rem(40) rem(10);
 
       &:nth-of-type(odd) {
         background-color: $c_accent_primary;
@@ -102,85 +81,38 @@
         background-color: $c_accent_secondary;
       }
 
-      @include breakpoint(medium) {
-        display: grid;
-        place-items: center;
-        gap: rem(12);
-        padding: rem(40) rem(10);
-      }
-
-      @include breakpoint(xlarge) {
-        gap: rem(60);
-        padding: rem(80) rem(10);
-      }
-
-      $svg_size: rem(120);
-      $svg_size_medium: rem(80);
-      $svg_size_xlarge: rem(100);
+      $svg_size: rem(80);
 
       svg {
         margin-top: rem(-10);
         fill: $c_button_light;
         width: $svg_size;
         height: $svg_size;
-
-        @include breakpoint(medium) {
-          width: $svg_size_medium;
-          height: $svg_size_medium;
-        }
-
-        @include breakpoint(xlarge) {
-          width: $svg_size_xlarge;
-          height: $svg_size_xlarge;
-        }
       }
 
       h4 {
         font-family: $syne;
-        font-size: rem(30);
+        font-size: rem(24);
         font-weight: 500;
         text-align: center;
-
-        @include breakpoint(medium) {
-          font-size: rem(24);
-        }
-
-        @include breakpoint(xlarge) {
-          font-size: rem(28);
-        }
       }
 
       p {
         font-family: $nunito;
         font-weight: 400;
-        font-size: rem(60);
+        font-size: rem(40);
         color: $c_button_light;
         display: flex;
         flex-direction: column;
         align-items: center;
         line-height: 1.4;
 
-        @include breakpoint(medium) {
-          font-size: rem(40);
-        }
-
-        @include breakpoint(xlarge) {
-          font-size: rem(74);
-        }
-
         span {
           font-family: $syne;
           font-size: rem(22);
           font-weight: 400;
           text-align: center;
-
-          @include breakpoint(medium) {
-            font-size: rem(16);
-          }
-
-          @include breakpoint(xlarge) {
-            font-size: rem(26);
-          }
+          line-height: 1.2;
         }
       }
     }
