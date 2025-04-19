@@ -1,0 +1,114 @@
+@use "@/app/scss/abstracts" as *;
+
+$nav_gap: rem(18);
+$nav_gap_medium: rem(24);
+$nav_gap_large: rem(40);
+
+#Nav {
+  display: flex;
+  align-items: center;
+  font-family: $lato;
+  color: $c_text_nav;
+  font-size: rem(14);
+  gap: $nav_gap;
+
+  @include breakpoint(medium) {
+    font-size: rem(18);
+    gap: $nav_gap_medium;
+  }
+
+  @include breakpoint(large) {
+    font-size: rem(18);
+    gap: $nav_gap_large;
+  }
+
+  .left {
+    display: flex;
+    gap: $nav_gap;
+
+    @include breakpoint(medium) {
+      gap: $nav_gap_medium;
+    }
+
+    @include breakpoint(large) {
+      gap: $nav_gap_large;
+    }
+
+    a {
+      @include breakpoint(large) {
+        transition: color 0.2s $e_quart;
+        &:hover {
+          color: $c_text_primary;
+        }
+      }
+    }
+  }
+
+  .login {
+    background-color: $c_button_light;
+    padding: rem(8) rem(18);
+
+    @include breakpoint(large) {
+      transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+
+      &:hover {
+        background-color: $c_button_dark;
+        color: $c_text_accent;
+      }
+    }
+  }
+}
+
+#MoreNav {
+  display: flex;
+  gap: $nav_gap;
+
+  .more_login {
+    width: fit-content;
+    background-color: $c_button_light;
+    padding: rem(8) rem(16);
+    font-size: rem(16);
+    font-weight: 600;
+  }
+
+  nav {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    position: fixed;
+    z-index: 100;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $c_accent_primary;
+    padding: 4vw 4vw 4vw 8vw;
+    font-size: rem(26);
+
+    @include breakpoint(medium) {
+      padding: 2vw 8vw 4vw 12vw;
+    }
+
+    button {
+      position: absolute;
+      width: fit-content;
+      font-family: $lato;
+      color: $c_text_primary;
+      font-size: rem(16);
+      top: 4vw;
+      right: 6vw;
+    }
+
+    .more_left {
+      display: flex;
+      flex-direction: column;
+      gap: rem(2);
+    }
+
+    .more_right {
+      width: fit-content;
+      align-self: flex-end;
+      margin: 4vw;
+    }
+  }
+}

@@ -1,0 +1,153 @@
+@use "./functions" as *;
+
+//*----> variables
+
+//*----> fonts
+
+$roboto: var(--font-roboto), sans-serif;
+$cookie: var(--font-cookie), cursive;
+$azeret: var(--font-azeret), monospace; // Added Azeret_Mono font
+$inter: var(--font-inter), sans-serif; // Added Inter font
+$anek: var(--font-anek), sans-serif; // Added Anek_Devanagari font
+$syne: var(--font-syne), sans-serif; // Added Syne font
+$nunito: var(--font-nunito), sans-serif; // Added Nunito font
+$lato: var(--font-lato), sans-serif; // Added Lato font
+
+@mixin cookie {
+  font-family: $cookie;
+  font-weight: 100;
+}
+
+//*----> colors
+
+$c_offLight: rgba(255, 255, 255, 0.99);
+$c_dark: #1d1d1f;
+$c_yellow: #fd8f04;
+$c_red: #fa0001;
+$c_greenLight: #a4f8b8;
+$c_green: #044914;
+$c_bg: #171715;
+$c_darkPink: #d91f8e;
+$c_lightBorder: #e0e0e0;
+
+$c_background_primary: #fae8e9;
+$c_background_secondary: #e2d9e6;
+$c_background_tertiary: #feeefd;
+$c_background_client: #f5f6fa;
+$c_background_footer: #d9cfe2;
+$c_background_nav: #f5f6fa;
+
+$c_text_logo: #403b5c;
+$c_text_primary: #2c274e;
+$c_text_secondary: #6c626d;
+$c_text_nav: #716974;
+$c_text_paragraph: #000000;
+$c_text_accent: #ffffff;
+
+$c_accent_primary: #b8adc9;
+$c_accent_secondary: #d6ccdf;
+$c_accent_client: #d9cfe2;
+$c_accent_tertiary: #fbeff6;
+
+$c_button_light: #ffffff;
+$c_button_dark: #2e2750;
+$c_button_dark_extra: #28214a;
+
+$c_stroke_primary: #8e8e8e;
+
+$b-radius: rem(20);
+
+$p: rem(10);
+$p-l: rem(20);
+$p-s: rem(5) rem(10);
+
+//*----> easing
+
+$e_quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+//*----> background animation
+
+@mixin bg_animation {
+  background-color: $dark;
+  background: linear-gradient(90deg, $yellow, $red, $yellow);
+  background-size: 200%;
+  animation: skeleton 1s infinite linear;
+
+  @keyframes skeleton {
+    from {
+      background-position: -100% 0;
+    }
+    to {
+      background-position: 100% 0;
+    }
+  }
+}
+
+//*----> full_width
+
+@mixin full_width {
+  width: 100vw;
+  max-width: 100%;
+  padding: 0 4vw;
+
+  @include breakpoint(medium) {
+    padding: 0 8vw;
+  }
+
+  @include breakpoint(large) {
+    padding: 0 13vw;
+  }
+}
+
+@mixin full_width_itinerary {
+  width: 100vw;
+  max-width: 100%;
+  padding: 0 4vw;
+
+  @include breakpoint(medium) {
+    padding-inline: 10vw;
+  }
+
+  @include breakpoint(large) {
+    padding-inline: 18vw;
+  }
+
+  @include breakpoint(xlarge) {
+    padding-inline: 20vw;
+  }
+
+  @include breakpoint(xxlarge) {
+    padding-inline: 30vw;
+  }
+}
+
+@mixin button {
+  width: 100%;
+  background-color: $yellow;
+  color: $dark;
+  border-radius: rem(10);
+  padding: rem(10) rem(15);
+
+  transition: background-color 0.2s $e_quart, color 0.3s $e_quart;
+
+  @include breakpoint(large) {
+    &:hover {
+      background-color: $dark;
+      color: $light;
+    }
+  }
+}
+
+/*
+//*---------->> Tablet
+
+@media screen and (min-width: 820px){
+
+}
+
+//*---------->> desktop
+
+@media screen and (min-width: 1025px){
+
+}
+ */

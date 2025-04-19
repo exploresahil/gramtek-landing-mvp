@@ -1,0 +1,35 @@
+@use "@/app/scss/abstracts" as *;
+
+header {
+  @include full_width;
+  height: rem(50);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 100;
+
+  @include breakpoint(medium) {
+    height: rem(80);
+  }
+
+  @include breakpoint(large) {
+    height: rem(120);
+  }
+
+  .logo {
+    font-size: rem(16);
+    font-family: $anek;
+    font-weight: 600;
+    margin-top: rem(6);
+    color: $c_text_logo;
+
+    @include breakpoint(medium) {
+      font-size: rem(24);
+    }
+
+    @include breakpoint(large) {
+      font-size: rem(32);
+    }
+  }
+}

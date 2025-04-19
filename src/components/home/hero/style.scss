@@ -1,0 +1,159 @@
+@use "@/app/scss/abstracts" as *;
+
+#Hero {
+  @include full_width;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+
+  .hero_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(24);
+    position: relative;
+    z-index: 2;
+    margin-top: rem(-20);
+
+    @include breakpoint(medium) {
+      gap: rem(36);
+    }
+
+    h2,
+    h3 {
+      font-family: $syne;
+      font-weight: 100;
+      color: $c_text_nav;
+      font-size: rem(14);
+
+      @include breakpoint(medium) {
+        font-size: rem(20);
+      }
+
+      @include breakpoint(large) {
+        font-size: rem(24);
+      }
+    }
+
+    h3 {
+      font-size: rem(12);
+      max-width: 60ch;
+
+      @include breakpoint(medium) {
+        max-width: 70%;
+        font-size: rem(18);
+      }
+
+      @include breakpoint(large) {
+        max-width: 80%;
+        font-size: rem(20);
+      }
+    }
+
+    h1 {
+      font-family: $nunito;
+      font-weight: 700;
+      font-size: rem(30);
+      font-style: italic;
+      color: $c_text_primary;
+
+      @include breakpoint(medium) {
+        font-size: rem(50);
+      }
+
+      @include breakpoint(large) {
+        font-size: rem(64);
+        font-weight: 600;
+      }
+    }
+
+    a {
+      font-family: $lato;
+      background-color: $c_button_dark;
+      color: $c_text_accent;
+      font-size: rem(12);
+      padding: rem(12) rem(20);
+      box-shadow: rem(8) rem(8) $c_button_dark_extra;
+      margin-right: rem(8);
+      transition: margin-right 0.2s $e_quart, box-shadow 0.2s $e_quart;
+
+      &:hover,
+      &:active,
+      &:focus {
+        margin-right: rem(4);
+        box-shadow: rem(4) rem(4) $c_button_dark_extra;
+      }
+
+      @include breakpoint(medium) {
+        font-size: rem(18);
+        padding: rem(18) rem(26);
+      }
+
+      @include breakpoint(large) {
+        margin-top: rem(20);
+        padding: rem(18) rem(40);
+      }
+    }
+  }
+
+  .bg_container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    display: flex;
+    overflow: hidden;
+
+    .right_img,
+    .left_img {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+
+      img {
+        object-fit: contain;
+        object-position: 0% 100%;
+      }
+    }
+
+    .left_img {
+      width: 100%;
+      height: 20%;
+      left: -20%;
+      //opacity: 0.5;
+
+      @include breakpoint(medium) {
+        width: 100%;
+      }
+
+      @include breakpoint(large) {
+        width: 60%;
+        left: 0;
+      }
+    }
+
+    .right_img {
+      width: 100%;
+      height: 24%;
+      right: 0;
+      //opacity: 0.75;
+
+      @include breakpoint(medium) {
+        height: 32%;
+      }
+
+      @include breakpoint(large) {
+        height: 60%;
+      }
+
+      img {
+        object-position: 100% 100%;
+      }
+    }
+  }
+}
