@@ -97,6 +97,10 @@ $e_quart: cubic-bezier(0.76, 0, 0.24, 1);
   @include breakpoint(large) {
     padding-inline: 13vw;
   }
+
+  @include breakpoint(xxlarge) {
+    padding-inline: 20vw;
+  }
 }
 
 @mixin full_width_itinerary {

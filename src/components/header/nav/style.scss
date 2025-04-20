@@ -21,6 +21,10 @@ $nav_gap_large: rem(40);
     gap: $nav_gap_large;
   }
 
+  @include breakpoint(xxlarge) {
+    font-size: rem(30);
+  }
+
   .left {
     display: flex;
     gap: $nav_gap;
@@ -54,6 +58,10 @@ $nav_gap_large: rem(40);
         background-color: $c_button_dark;
         color: $c_text_accent;
       }
+    }
+
+    @include breakpoint(xxlarge) {
+      padding: rem(16) rem(28);
     }
   }
 }

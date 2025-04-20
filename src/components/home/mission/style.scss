@@ -18,6 +18,10 @@
     height: 100vh;
   }
 
+  @include breakpoint(xxlarge) {
+    gap: rem(40);
+  }
+
   h1,
   h3 {
     font-family: $syne;
@@ -32,8 +36,16 @@
       font-size: rem(20);
     }
 
+    @include breakpoint(large) {
+      font-size: rem(18);
+    }
+
     @include breakpoint(xlarge) {
       font-size: rem(28);
+    }
+
+    @include breakpoint(xxlarge) {
+      font-size: rem(40);
     }
   }
 
@@ -49,9 +61,17 @@
       font-size: rem(50);
     }
 
+    @include breakpoint(large) {
+      font-size: rem(36);
+    }
+
     @include breakpoint(xlarge) {
       font-size: rem(30);
       font-weight: 600;
+    }
+
+    @include breakpoint(xxlarge) {
+      font-size: rem(60);
     }
   }
 
@@ -64,20 +84,29 @@
       font-size: rem(18);
       max-width: 60ch;
     }
+
+    @include breakpoint(large) {
+      font-size: rem(16);
+    }
+
+    @include breakpoint(xxlarge) {
+      font-size: rem(30);
+      max-width: 80ch;
+    }
   }
 
   .cards_container {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: rem(24);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     margin-top: rem(30);
+    gap: rem(8);
 
     @include breakpoint(medium) {
+      padding-inline: 4vw;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: rem(24);
+      gap: rem(10);
     }
 
     @include breakpoint(xlarge) {
@@ -85,20 +114,35 @@
       gap: rem(10);
     }
 
+    @include breakpoint(xxlarge) {
+      margin-top: rem(80);
+      padding-inline: 8vw;
+      gap: rem(10);
+    }
+
     .card {
       width: 100%;
       height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: rem(26);
-      padding: rem(80) rem(10);
+      display: grid;
+      place-items: center;
+      gap: rem(16);
+      padding: rem(30) rem(10);
+      background-color: $c_accent_primary;
 
-      &:nth-of-type(odd) {
+      &:nth-of-type(1),
+      &:nth-of-type(4) {
         background-color: $c_accent_primary;
       }
 
-      &:nth-of-type(even) {
+      &:nth-of-type(3),
+      &:nth-of-type(4) {
+        svg {
+          margin-top: 0;
+        }
+      }
+
+      &:nth-of-type(2),
+      &:nth-of-type(3) {
         background-color: $c_accent_secondary;
       }
 
@@ -107,6 +151,18 @@
         place-items: center;
         gap: rem(12);
         padding: rem(40) rem(10);
+
+        &:nth-of-type(odd) {
+          background-color: $c_accent_primary;
+        }
+
+        &:nth-of-type(even) {
+          background-color: $c_accent_secondary;
+        }
+      }
+
+      @include breakpoint(large) {
+        padding: rem(60) rem(10);
       }
 
       @include breakpoint(xlarge) {
@@ -114,9 +170,15 @@
         padding: rem(80) rem(10);
       }
 
-      $svg_size: rem(120);
+      @include breakpoint(xxlarge) {
+        gap: rem(80);
+        padding: rem(100) rem(10);
+      }
+
+      $svg_size: rem(80);
       $svg_size_medium: rem(80);
-      $svg_size_xlarge: rem(100);
+      $svg_size_xlarge: rem(120);
+      $svg_size_xxlarge: rem(160);
 
       svg {
         margin-top: rem(-10);
@@ -133,11 +195,16 @@
           width: $svg_size_xlarge;
           height: $svg_size_xlarge;
         }
+
+        @include breakpoint(xxlarge) {
+          width: $svg_size_xxlarge;
+          height: $svg_size_xxlarge;
+        }
       }
 
       h4 {
         font-family: $syne;
-        font-size: rem(30);
+        font-size: rem(24);
         font-weight: 500;
         text-align: center;
 
@@ -148,12 +215,16 @@
         @include breakpoint(xlarge) {
           font-size: rem(28);
         }
+
+        @include breakpoint(xxlarge) {
+          font-size: rem(36);
+        }
       }
 
       p {
         font-family: $nunito;
         font-weight: 400;
-        font-size: rem(60);
+        font-size: rem(44);
         color: $c_button_light;
         display: flex;
         flex-direction: column;
@@ -168,11 +239,16 @@
           font-size: rem(74);
         }
 
+        @include breakpoint(xxlarge) {
+          font-size: rem(80);
+        }
+
         span {
           font-family: $syne;
-          font-size: rem(22);
+          font-size: rem(16);
           font-weight: 400;
           text-align: center;
+          line-height: 1.2;
 
           @include breakpoint(medium) {
             font-size: rem(16);
@@ -180,6 +256,10 @@
 
           @include breakpoint(xlarge) {
             font-size: rem(26);
+          }
+
+          @include breakpoint(xxlarge) {
+            font-size: rem(32);
           }
         }
       }

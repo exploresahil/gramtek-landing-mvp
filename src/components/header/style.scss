@@ -21,6 +21,10 @@ header {
     height: rem(120);
   }
 
+  @include breakpoint(xxlarge) {
+    height: rem(140);
+  }
+
   .logo {
     font-size: rem(16);
     font-family: $anek;
@@ -34,6 +38,10 @@ header {
 
     @include breakpoint(xlarge) {
       font-size: rem(32);
+    }
+
+    @include breakpoint(xxlarge) {
+      font-size: rem(40);
     }
   }
 }
