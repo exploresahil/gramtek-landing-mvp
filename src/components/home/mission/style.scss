@@ -58,7 +58,7 @@
     font-size: rem(30);
 
     @include breakpoint(medium) {
-      font-size: rem(50);
+      font-size: rem(40);
     }
 
     @include breakpoint(large) {
