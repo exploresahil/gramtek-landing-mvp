@@ -53,8 +53,15 @@
       font-size: rem(22);
     }
 
+    p {
+      @include breakpoint(xxlarge) {
+        font-size: rem(22);
+      }
+    }
+
     a {
-      font-size: rem(22);
+      font-size: rem(14);
+      font-family: $lato;
       margin-top: rem(10);
       border: rem(1) solid $c_button_dark;
       padding: rem(10) rem(20);
