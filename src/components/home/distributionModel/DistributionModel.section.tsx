@@ -11,7 +11,10 @@ const DistributionModelSectionData = {
     "Gramtek's innovative distribution model ensures that women and girls in remote and underserved areas have access to high-quality sanitary pads at affordable prices.",
   descriptionTwo:
     "By partnering with local community organizations and leveraging digital technologies, we established a deep connection with the villagers.",
-  btn: "Learn More",
+  btn: {
+    link: "/login",
+    text: "Learn More",
+  },
 };
 
 const DistributionModelSection = () => {
@@ -26,7 +29,9 @@ const DistributionModelSection = () => {
           <br />
           {DistributionModelSectionData.descriptionTwo}
         </p>
-        <Link href="/about">Learn More</Link>
+        <Link href={DistributionModelSectionData.btn.link}>
+          {DistributionModelSectionData.btn.text}
+        </Link>
       </div>
       <div className="img_container">
         <Image

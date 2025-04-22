@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import {
   cookie,
   roboto,
@@ -11,6 +11,13 @@ import {
 } from "./fonts";
 import "./scss/globals.scss";
 import Header from "@/components/header/Header";
+import { ErrorBoundary } from "react-error-boundary";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  minimumScale: 1,
+};
 
 export const metadata: Metadata = {
   title: "Gramtek",
@@ -27,8 +34,10 @@ export default function RootLayout({
       <body
         className={`${roboto.variable} ${cookie.variable} ${azeret.variable} ${inter.variable} ${anek.variable} ${syne.variable} ${nunito.variable} ${lato.variable}`}
       >
-        <Header />
-        {children}
+        <ErrorBoundary fallback={<div>Something went wrong</div>}>
+          <Header />
+          {children}
+        </ErrorBoundary>
       </body>
     </html>
   );

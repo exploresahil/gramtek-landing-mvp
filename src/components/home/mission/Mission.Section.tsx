@@ -1,11 +1,11 @@
-import MenuIcon from "@/components/icons/MenuIcon";
+import MenuIcon from "@/components/svg/MenuIcon";
 import "./style.scss";
 import {
   CurrentDistributionIocon,
   EconomicImpactIcon,
   OurReachIcon,
   TotalBeneficiariesIcon,
-} from "@/components/icons/MissionIcons";
+} from "@/components/svg/MissionIcons";
 
 //*---------↓ Mission Content ↓---------*//
 

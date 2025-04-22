@@ -5,8 +5,8 @@ import "./style.scss";
 import useResponsive from "@/hooks/useResponsive";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import MenuIcon from "@/components/icons/MenuIcon";
-import MenuCloseIcon from "@/components/icons/MenuCloseIcon";
+import MenuIcon from "@/components/svg/MenuIcon";
+import MenuCloseIcon from "@/components/svg/MenuCloseIcon";
 
 type NavItem = {
   title: string;

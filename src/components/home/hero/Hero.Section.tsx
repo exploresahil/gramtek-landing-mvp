@@ -11,7 +11,10 @@ const heroData = {
   subtitleB: "Pads for Rural India",
   description:
     "Gramtek is a non-profit organization dedicated to improving sanitary hygiene in underserved rural communities across India.",
-  linkText: "Get Involved",
+  btn: {
+    link: "/login",
+    text: "Get Involved",
+  },
 };
 
 const Hero = () => {
@@ -25,7 +28,7 @@ const Hero = () => {
           {heroData.subtitleB}
         </h1>
         <h3>{heroData.description}</h3>
-        <Link href="/login">{heroData.linkText}</Link>
+        <Link href={heroData.btn.link}>{heroData.btn.text}</Link>
       </div>
       <div className="bg_container">
         <div className="left_img">
