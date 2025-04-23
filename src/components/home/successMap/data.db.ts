@@ -26,4 +26,14 @@ export const mapData: LocationData[] = [
       "lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, repellat.",
     info: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, repellat. lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, repellat.",
   },
+  {
+    id: "parseoni",
+    name: "Parseoni",
+    date: "12 March, 1971",
+    education: "LLB3",
+    description:
+      "lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, repellat.",
+    info: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, repellat. lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, repellat.",
+  }
+
 ];

@@ -9,8 +9,6 @@ import {
 
 //*---------↓ Mission Content ↓---------*//
 
-const iconSize = 100; // Adjust the size as needed
-
 const missionData = {
   title: "Our Mission",
   mainTitle: "Empowering Communities",

@@ -1,7 +1,180 @@
 @use "@/app/scss/abstracts" as *;
 
 #SuccessMapSection {
-  height: 100vh;
   background-color: $c_button_light;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: rem(40);
+  padding-block: rem(20) rem(60);
   @include full_width;
+
+  h1 {
+    font-family: $syne;
+    font-weight: 100;
+
+    font-size: rem(18);
+    color: $c_text_nav;
+
+    @include breakpoint(medium) {
+      font-size: rem(20);
+    }
+
+    @include breakpoint(large) {
+      font-size: rem(18);
+    }
+
+    @include breakpoint(xlarge) {
+      font-size: rem(28);
+    }
+
+    @include breakpoint(xxlarge) {
+      font-size: rem(40);
+    }
+  }
+
+  @include breakpoint(medium) {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include breakpoint(large) {
+    height: 100vh;
+  }
+
+  .success_map_main {
+    background-color: $c_background_secondary;
+    border-radius: rem(10);
+    padding: rem(20);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include breakpoint(large) {
+      gap: rem(20);
+      padding-block: rem(40);
+    }
+
+    .select_container {
+      width: 100%;
+      position: relative;
+      font-family: $syne;
+      display: flex;
+      justify-content: center;
+
+      .dropdown_toggle {
+        width: 100%;
+        background-color: $c_background_client;
+        padding: rem(10) rem(20);
+        border-radius: rem(10);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 500;
+
+        @include breakpoint(large) {
+          width: 50%;
+        }
+      }
+
+      .dropdown_menu {
+        max-height: rem(200);
+        background-color: $c_background_client;
+        border-radius: rem(10);
+        position: absolute;
+        margin-top: rem(5);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        z-index: 2;
+        overflow-y: scroll;
+        padding-block: rem(4);
+
+        @include breakpoint(large) {
+          width: 50%;
+          top: 100%;
+        }
+
+        li {
+          color: $c_text_nav;
+
+          button {
+            padding: rem(10) rem(20);
+            width: 100%;
+            opacity: 0.7;
+            font-weight: 100;
+            text-align: left;
+          }
+
+          .active {
+            color: $c_text_primary;
+            opacity: 1;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+
+    .map_main_container {
+      @include breakpoint(medium) {
+        display: flex;
+        align-items: center;
+        gap: rem(50);
+      }
+
+      @include breakpoint(large) {
+        gap: rem(20);
+      }
+
+      .taluka_map_container {
+        @include breakpoint(medium) {
+          width: 50%;
+        }
+
+        svg {
+          height: 50vh;
+
+          @include breakpoint(medium) {
+            max-height: 26vh;
+          }
+
+          @include breakpoint(large) {
+            max-height: 50vh;
+
+            g {
+              cursor: pointer;
+
+              path {
+                transition: fill 0.2s ease-in-out;
+                &:hover {
+                  &:nth-of-type(1) {
+                    fill: $c_background_secondary;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .info_container {
+        display: flex;
+        flex-direction: column;
+        gap: rem(10);
+
+        @include breakpoint(medium) {
+          width: 50%;
+        }
+
+        @include breakpoint(large) {
+          width: 34%;
+        }
+      }
+    }
+  }
 }

@@ -12,7 +12,7 @@ export default function Home() {
       <main>
         <Hero />
         <Mission />
-        {/* <SuccessMapSection /> */}
+        <SuccessMapSection />
         <DistributionModelSection />
         <ApproachSection />
       </main>

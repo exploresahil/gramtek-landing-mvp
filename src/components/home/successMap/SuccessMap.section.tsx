@@ -1,13 +1,34 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { mapData } from "./data.db";
 import "./style.scss";
+import TalukaMap from "@/components/home/successMap/TalukaMap";
+import { AnimatePresence, motion } from "motion/react";
 
 export default function SuccessMapSection() {
   const [selectedLocation, setSelectedLocation] = useState<string>(
     mapData[0].id
   );
+
+  console.log("selectedLocation->", selectedLocation);
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // close on outside click
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (
+        isOpen &&
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [isOpen]);
 
   const locationData = mapData.find(
     (location) => location.id === selectedLocation
@@ -20,34 +41,63 @@ export default function SuccessMapSection() {
   );
 
   return (
-    <section className="py-8" id="SuccessMapSection">
-      <div className="select-container">
-        <label
-          htmlFor="locationSelect"
-          className="block mb-2 text-sm font-medium"
-        >
-          Choose Location:
-        </label>
-        <select
-          id="locationSelect"
-          value={selectedLocation}
-          onChange={(e) => setSelectedLocation(e.target.value)}
-          className="w-full p-2 border rounded-md"
-        >
-          {mapData.map((location) => (
-            <option key={location.id} value={location.id}>
-              {location.name}
-            </option>
-          ))}
-        </select>
-      </div>
+    <section id="SuccessMapSection">
+      <h1>Browse Our Success Map</h1>
+      <div className="success_map_main">
+        <div className="select_container" ref={dropdownRef}>
+          <button
+            className="dropdown_toggle"
+            onClick={() => setIsOpen((o) => !o)}
+          >
+            {locationData.name}{" "}
+            <span className="arrow">{isOpen ? "▴" : "▾"}</span>
+          </button>
 
-      <div className="info-container mt-6">
-        <h2 className="text-2xl font-bold mb-4">{locationData.name}</h2>
-        <InfoItem label="Date" value={locationData.date} />
-        <InfoItem label="Education" value={locationData.education} />
-        <InfoItem label="Description" value={locationData.description} />
-        <InfoItem label="Info" value={locationData.info} />
+          <AnimatePresence mode="sync">
+            {isOpen && (
+              <motion.ul
+                className="dropdown_menu"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{
+                  opacity: 1,
+                  height: "auto",
+                  transition: { duration: 0.2 },
+                }}
+                exit={{ opacity: 0, height: 0 }}
+              >
+                {mapData.map((loc) => (
+                  <li key={loc.id}>
+                    <button
+                      className={loc.id === selectedLocation ? "active" : ""}
+                      onClick={() => {
+                        setSelectedLocation(loc.id);
+                        setIsOpen(false);
+                      }}
+                    >
+                      {loc.name}
+                    </button>
+                  </li>
+                ))}
+              </motion.ul>
+            )}
+          </AnimatePresence>
+        </div>
+
+        <div className="map_main_container">
+          <div className="taluka_map_container">
+            <TalukaMap
+              selected={selectedLocation}
+              setSelectedLocation={setSelectedLocation}
+            />
+          </div>
+          <div className="info_container">
+            <h2>{locationData.name}</h2>
+            <InfoItem label="Date" value={locationData.date} />
+            <InfoItem label="Education" value={locationData.education} />
+            <InfoItem label="Description" value={locationData.description} />
+            <InfoItem label="Info" value={locationData.info} />
+          </div>
+        </div>
       </div>
     </section>
   );
