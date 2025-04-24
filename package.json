@@ -14,14 +14,13 @@
     "next": "15.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-error-boundary": "^5.0.0",
-    "sass": "^1.86.3"
+    "react-error-boundary": "^5.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "scss": "^0.2.4",
+    "sass": "^1.87.0",
     "typescript": "^5"
   }
 }
