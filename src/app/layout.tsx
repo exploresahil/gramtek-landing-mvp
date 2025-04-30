@@ -12,6 +12,8 @@ import {
 import "./scss/globals.scss";
 import Header from "@/components/header/Header";
 import { ErrorBoundary } from "react-error-boundary";
+import ReactLenis from "lenis/react";
+import "lenis/dist/lenis.css";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -31,14 +33,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${roboto.variable} ${cookie.variable} ${azeret.variable} ${inter.variable} ${anek.variable} ${syne.variable} ${nunito.variable} ${lato.variable}`}
-      >
-        <ErrorBoundary fallback={<div>Something went wrong</div>}>
-          <Header />
-          {children}
-        </ErrorBoundary>
-      </body>
+      <ReactLenis root>
+        <body
+          className={`${roboto.variable} ${cookie.variable} ${azeret.variable} ${inter.variable} ${anek.variable} ${syne.variable} ${nunito.variable} ${lato.variable}`}
+        >
+          <ErrorBoundary fallback={<div>Something went wrong</div>}>
+            <Header />
+            {children}
+          </ErrorBoundary>
+        </body>
+      </ReactLenis>
     </html>
   );
 }

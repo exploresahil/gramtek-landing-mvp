@@ -34,6 +34,6 @@ export const mapData: LocationData[] = [
     description:
       "lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, repellat.",
     info: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, repellat. lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, repellat.",
-  }
+  },
 
 ];

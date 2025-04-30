@@ -1,0 +1,152 @@
+@use "@/app/scss/abstracts" as *;
+
+#DistributionPackage {
+  @include breakpoint(medium) {
+    height: 40vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-block: 0;
+    gap: rem(10);
+  }
+
+  @include breakpoint(large) {
+    height: 100vh;
+    gap: rem(30);
+  }
+
+  @include breakpoint(xlarge) {
+    gap: rem(10);
+  }
+
+  .content_container {
+    display: flex;
+    flex-direction: column;
+    gap: rem(20);
+    padding-inline: 4vw;
+
+    @include breakpoint(medium) {
+      grid-column: 1 / 2;
+      padding-inline: 8vw 0;
+      justify-content: center;
+    }
+
+    @include breakpoint(large) {
+      gap: rem(30);
+    }
+
+    @include breakpoint(xlarge) {
+      gap: rem(40);
+    }
+
+    @include breakpoint(xxlarge) {
+      gap: rem(60);
+    }
+
+    h1,
+    p {
+      font-family: $syne;
+      font-weight: 400;
+      font-size: rem(16);
+      color: $c_text_secondary;
+
+      @include breakpoint(large) {
+        max-width: 80%;
+      }
+
+      @include breakpoint(xlarge) {
+        font-size: rem(22);
+      }
+
+      @include breakpoint(xxlarge) {
+        font-size: rem(36);
+      }
+    }
+
+    h2 {
+      text-align: left;
+      font-family: $nunito;
+      font-style: italic;
+      font-weight: 600;
+      font-size: rem(30);
+      color: $c_text_primary;
+      max-width: 80%;
+
+      @include breakpoint(large) {
+        max-width: 60%;
+      }
+
+      @include breakpoint(xlarge) {
+        max-width: 40%;
+        font-size: rem(36);
+      }
+
+      @include breakpoint(xxlarge) {
+        font-size: rem(64);
+      }
+    }
+
+    a {
+      width: fit-content;
+      font-family: $lato;
+      font-weight: 400;
+      font-size: rem(14);
+      border: rem(1) solid $c_button_dark;
+      padding: rem(10) rem(20);
+      border-radius: rem(100);
+
+      @include breakpoint(large) {
+        transition: background 0.3s ease-in-out, color 0.2s ease-in-out;
+
+        &:hover {
+          background-color: $c_button_dark;
+          color: $c_button_light;
+        }
+      }
+
+      @include breakpoint(xlarge) {
+        font-size: rem(18);
+        padding: rem(16) rem(30);
+      }
+
+      @include breakpoint(xxlarge) {
+        font-size: rem(24);
+        padding: rem(20) rem(40);
+      }
+    }
+  }
+
+  .img_container {
+    width: 100%;
+    aspect-ratio: 1;
+    position: relative;
+
+    @include breakpoint(medium) {
+      margin-top: auto;
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+    }
+
+    @include breakpoint(xlarge) {
+      width: 100%;
+      padding-left: 10%;
+    }
+
+    img {
+      object-fit: contain;
+      object-position: 0% 50%;
+      margin-left: 16%;
+      transform: scale(1.09);
+      transform-origin: bottom right;
+
+      @include breakpoint(medium) {
+        margin-left: 0;
+        transform: scale(1);
+        object-position: 100% 50%;
+      }
+
+      @include breakpoint(xlarge) {
+        transform: scale(0.9);
+      }
+    }
+  }
+}

@@ -51,6 +51,7 @@ $nav_gap_large: rem(40);
   .login {
     background-color: $c_button_light;
     padding: rem(8) rem(18);
+    border-radius: rem(8);
 
     @include breakpoint(large) {
       transition: background 0.3s ease-in-out, color 0.2s ease-in-out;
@@ -72,6 +73,7 @@ $nav_gap_large: rem(40);
   gap: $nav_gap;
 
   .more_login {
+    border-radius: rem(8);
     width: fit-content;
     background-color: $c_button_light;
     padding: rem(8) rem(16);

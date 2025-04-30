@@ -1,0 +1,60 @@
+@use "@/app/scss/abstracts" as *;
+
+#DistributionMockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @include full_width;
+
+  @include breakpoint(medium) {
+    height: auto;
+  }
+
+  .distribution_mockup_main {
+    margin-top: rem(20);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    @include breakpoint(medium) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: rem(30);
+    }
+
+    @include breakpoint(large) {
+      gap: rem(140);
+    }
+
+    .right {
+      width: 100%;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+
+      .image {
+        width: 100%;
+        position: relative;
+        z-index: 2;
+      }
+
+      .img_left_container {
+        z-index: 1;
+        transform: rotate(-10deg) scale(1.1) translateX(rem(10))
+          translateY(rem(5));
+      }
+
+      .img_mid_container {
+        transform: scale(1.2);
+      }
+
+      .img_right_container {
+        z-index: 1;
+        transform: rotate(10deg) scale(1.1) translateX(rem(-10))
+          translateY(rem(5));
+      }
+    }
+  }
+}
