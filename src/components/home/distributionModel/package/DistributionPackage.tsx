@@ -1,16 +1,15 @@
 import ImageSize from "@/utils";
 import Image from "next/image";
-import Link from "next/link";
 import "./style.scss";
 
 const DistributionModelSectionData = {
-  img: "/assets/distribution/package_right.png",
-  title: "Our Distribution Model",
-  subtitle: "Simple, Effective & Scalable",
+  img: "/assets/distribution/package_right_edited.png",
+  title: "Quality & Community Feedback",
+  subtitle: "Her Comfort, Our Commitment",
   descriptionOne:
-    "Gramtek's innovative distribution model ensures that women and girls in remote and underserved areas have access to high-quality sanitary pads at affordable prices.",
+    "At Gramtek, we believe access to safe, high-quality sanitary pads is just as important as ensuring their availability. We make sure pads pass BIS Standards as per IS 5405:2019 .",
   descriptionTwo:
-    "By partnering with local community organizations and leveraging digital technologies, we established a deep connection with the villagers.",
+    "To ensure our pads meet the needs of women in remote villages, we",
   btn: {
     link: "/login",
     text: "Learn More",
@@ -37,9 +36,15 @@ const DistributionPackage = () => {
           <br />
           {DistributionModelSectionData.descriptionTwo}
         </p>
-        <Link href={DistributionModelSectionData.btn.link}>
-          {DistributionModelSectionData.btn.text}
-        </Link>
+        <ul>
+          <li>
+            Collect direct feedback from users through surveys and village
+            meetings
+          </li>
+          <li>
+            Train local agents to report issues and suggestions in real-time.
+          </li>
+        </ul>
       </div>
     </section>
   );

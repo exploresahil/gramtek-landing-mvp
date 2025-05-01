@@ -203,6 +203,7 @@
       height: 20%;
       left: -20%;
       //opacity: 0.5;
+      transform-origin: bottom left;
 
       @include breakpoint(medium) {
         width: 100%;
@@ -225,6 +226,7 @@
       height: 24%;
       right: 0;
       //opacity: 0.75;
+      transform-origin: bottom right;
 
       @include breakpoint(medium) {
         height: 32%;

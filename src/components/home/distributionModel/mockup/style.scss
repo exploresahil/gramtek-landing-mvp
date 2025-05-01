@@ -17,6 +17,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: rem(14);
 
     @include breakpoint(medium) {
       display: grid;
@@ -38,22 +39,77 @@
         width: 100%;
         position: relative;
         z-index: 2;
+
+        @include breakpoint(large) {
+          cursor: pointer;
+        }
       }
 
       .img_left_container {
         z-index: 1;
         transform: rotate(-10deg) scale(1.1) translateX(rem(10))
           translateY(rem(5));
+
+        transition: z-index 0.2s ease-in-out, scale 0.3s ease-in-out;
+
+        @include breakpoint(large) {
+          &:hover {
+            z-index: 3;
+            scale: 1.15;
+          }
+        }
       }
 
       .img_mid_container {
         transform: scale(1.2);
+
+        @include breakpoint(large) {
+          transition: scale 0.3s ease-in-out;
+
+          &:hover {
+            scale: 1.1;
+          }
+        }
       }
 
       .img_right_container {
         z-index: 1;
         transform: rotate(10deg) scale(1.1) translateX(rem(-10))
           translateY(rem(5));
+
+        transition: z-index 0.2s ease-in-out, scale 0.3s ease-in-out;
+
+        @include breakpoint(large) {
+          &:hover {
+            z-index: 3;
+            scale: 1.15;
+          }
+        }
+      }
+    }
+
+    .content_container {
+      grid-column: 2 / 3;
+
+      @include breakpoint(medium) {
+        padding-left: 2vw;
+      }
+
+      h2 {
+        max-width: 80%;
+
+        @include breakpoint(large) {
+          max-width: 80%;
+        }
+
+        @include breakpoint(xlarge) {
+          max-width: 60%;
+          font-size: rem(36);
+        }
+
+        @include breakpoint(xxlarge) {
+          font-size: rem(64);
+        }
       }
     }
   }

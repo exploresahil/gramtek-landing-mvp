@@ -1,7 +1,10 @@
 @use "@/app/scss/abstracts" as *;
 
 #DistributionPackage {
+  margin-top: rem(100);
+
   @include breakpoint(medium) {
+    margin-top: rem(40);
     height: 40vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -15,46 +18,32 @@
   }
 
   @include breakpoint(xlarge) {
+    margin-top: rem(180);
     gap: rem(10);
   }
 
   .content_container {
-    display: flex;
-    flex-direction: column;
-    gap: rem(20);
-    padding-inline: 4vw;
+    @include full_padding_inline;
 
     @include breakpoint(medium) {
-      grid-column: 1 / 2;
-      padding-inline: 8vw 0;
-      justify-content: center;
-    }
-
-    @include breakpoint(large) {
-      gap: rem(30);
+      padding-right: rem(20);
     }
 
     @include breakpoint(xlarge) {
-      gap: rem(40);
-    }
-
-    @include breakpoint(xxlarge) {
-      gap: rem(60);
+      justify-content: flex-start;
+      padding-block: rem(80);
     }
 
     h1,
-    p {
-      font-family: $syne;
-      font-weight: 400;
-      font-size: rem(16);
-      color: $c_text_secondary;
-
+    p,
+    ul {
       @include breakpoint(large) {
-        max-width: 80%;
+        max-width: 90%;
       }
 
       @include breakpoint(xlarge) {
         font-size: rem(22);
+        max-width: 80%;
       }
 
       @include breakpoint(xxlarge) {
@@ -63,20 +52,14 @@
     }
 
     h2 {
-      text-align: left;
-      font-family: $nunito;
-      font-style: italic;
-      font-weight: 600;
-      font-size: rem(30);
-      color: $c_text_primary;
       max-width: 80%;
 
       @include breakpoint(large) {
-        max-width: 60%;
+        max-width: 80%;
       }
 
       @include breakpoint(xlarge) {
-        max-width: 40%;
+        max-width: 60%;
         font-size: rem(36);
       }
 
@@ -85,33 +68,12 @@
       }
     }
 
-    a {
-      width: fit-content;
-      font-family: $lato;
-      font-weight: 400;
-      font-size: rem(14);
-      border: rem(1) solid $c_button_dark;
-      padding: rem(10) rem(20);
-      border-radius: rem(100);
-
-      @include breakpoint(large) {
-        transition: background 0.3s ease-in-out, color 0.2s ease-in-out;
-
-        &:hover {
-          background-color: $c_button_dark;
-          color: $c_button_light;
-        }
-      }
-
-      @include breakpoint(xlarge) {
-        font-size: rem(18);
-        padding: rem(16) rem(30);
-      }
-
-      @include breakpoint(xxlarge) {
-        font-size: rem(24);
-        padding: rem(20) rem(40);
-      }
+    ul {
+      list-style: disc;
+      padding-left: rem(20);
+      display: flex;
+      flex-direction: column;
+      gap: rem(10);
     }
   }
 
@@ -145,7 +107,7 @@
       }
 
       @include breakpoint(xlarge) {
-        transform: scale(0.9);
+        transform: scale(1);
       }
     }
   }
