@@ -67,6 +67,27 @@
         font-size: rem(60);
       }
     }
+
+    .mainTitleSplit {
+      display: flex;
+      column-gap: rem(10);
+      flex-wrap: wrap;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+
+      @include breakpoint(medium) {
+        column-gap: rem(14);
+      }
+
+      @include breakpoint(large) {
+        column-gap: rem(10);
+      }
+
+      @include breakpoint(xlarge) {
+        column-gap: rem(10);
+      }
+    }
   }
 
   .content_container {

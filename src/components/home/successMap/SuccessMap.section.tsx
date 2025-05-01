@@ -40,10 +40,41 @@ export default function SuccessMapSection() {
     </p>
   );
 
+  const once = true;
+
   return (
     <section id="SuccessMapSection">
-      <h1>Browse Our Success Map</h1>
-      <div className="success_map_main">
+      <motion.h1
+        initial={{
+          opacity: 0,
+        }}
+        whileInView={{
+          opacity: 1,
+          transition: {
+            ease: "easeInOut",
+            delay: 0.3,
+          },
+        }}
+        viewport={{ once }}
+      >
+        Browse Our Success Map
+      </motion.h1>
+      <motion.div
+        className="success_map_main"
+        initial={{
+          opacity: 0,
+          y: 20,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+          transition: {
+            ease: "easeInOut",
+            delay: 0.4,
+          },
+        }}
+        viewport={{ once }}
+      >
         <div className="select_container" ref={dropdownRef}>
           <button
             className="dropdown_toggle"
@@ -98,7 +129,7 @@ export default function SuccessMapSection() {
             <InfoItem label="Info" value={locationData.info} />
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

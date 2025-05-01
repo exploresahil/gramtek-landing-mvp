@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "motion/react";
+import { motion, Variants } from "motion/react";
 import ImageSize from "@/utils";
 import "./style.scss";
 import Link from "next/link";
@@ -88,6 +88,25 @@ const motionRightData = {
   },
 };
 
+const subtitleSplit = MockupData.subtitle.split(" ");
+
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const once = false;
+
 const DistributionMockup = () => (
   <section id="DistributionMockup">
     <div className="distribution_mockup_main">
@@ -119,13 +138,40 @@ const DistributionMockup = () => (
       </div>
 
       <div className="content_container">
-        <h2>{MockupData.subtitle}</h2>
-        <p>
+        <h2>
+          <motion.div
+            className="mainTitleSplit"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once }}
+          >
+            {subtitleSplit.map((word, i) => (
+              <motion.span key={i} variants={itemVariants}>
+                {word}
+              </motion.span>
+            ))}
+          </motion.div>
+        </h2>
+        <motion.p
+          initial={{
+            opacity: 0,
+            x: 10,
+          }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+            transition: {
+              delay: 0.3,
+              ease: "easeInOut",
+            },
+          }}
+        >
           {MockupData.descriptionOne}
           <br />
           <br />
           {MockupData.descriptionTwo}
-        </p>
+        </motion.p>
         <Link href={MockupData.btn.link}>{MockupData.btn.text}</Link>
       </div>
     </div>

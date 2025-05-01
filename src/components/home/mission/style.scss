@@ -73,9 +73,30 @@
     @include breakpoint(xxlarge) {
       font-size: rem(60);
     }
+
+    .mainTitleSplit {
+      display: flex;
+      column-gap: rem(10);
+      flex-wrap: wrap;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+
+      @include breakpoint(medium) {
+        column-gap: rem(14);
+      }
+
+      @include breakpoint(large) {
+        column-gap: rem(10);
+      }
+
+      @include breakpoint(xlarge) {
+        column-gap: rem(10);
+      }
+    }
   }
 
-  h3 {
+  p {
     font-size: rem(16);
     text-align: center;
     color: $c_text_secondary;

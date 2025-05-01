@@ -18,7 +18,7 @@ import {
   UmredSvg,
 } from "@/components/svg/talukaMap/talukas/TalukasSvgs";
 import useResponsive from "@/hooks/useResponsive";
-import { LocationData } from "./data.db";
+import { LocationData, mapData } from "./data.db";
 import { motion } from "motion/react";
 
 type TalukaMapProps = {
@@ -64,13 +64,14 @@ const TalukaMap = ({ selected, setSelectedLocation }: TalukaMapProps) => {
     }
   }, [mounted, isMobile, selected, viewBox]);
 
+  const MotionSvg = motion.svg;
+
   if (!mounted) return null;
 
   const getSelectedFill = (talukaName: string) =>
     selected === talukaName ? "#D6CCDF" : undefined;
 
   // Import mapData to filter visible SVG components
-  const { mapData } = require("./data.db");
 
   // Create a mapping of taluka IDs to their SVG components
   const talukaComponents = {
@@ -96,11 +97,12 @@ const TalukaMap = ({ selected, setSelectedLocation }: TalukaMapProps) => {
 
   if (isMobile) {
     return (
-      <svg
+      <MotionSvg
         ref={svgRef}
         width="100%"
         height="100%"
-        viewBox={viewBox}
+        animate={{ viewBox }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
         xmlns="http://www.w3.org/2000/svg"
       >
         {mapData
@@ -115,7 +117,7 @@ const TalukaMap = ({ selected, setSelectedLocation }: TalukaMapProps) => {
               />
             );
           })}
-      </svg>
+      </MotionSvg>
     );
   }
 

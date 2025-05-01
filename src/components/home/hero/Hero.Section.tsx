@@ -5,7 +5,6 @@ import "./style.scss";
 import Image from "next/image";
 import ImageSize from "@/utils";
 import { motion } from "motion/react";
-import { delay } from "motion";
 
 //*---------↓ Hero Content ↓---------*//
 
@@ -22,7 +21,7 @@ const heroData = {
 
 const subtitleSplit = heroData.subtitle.split(" ");
 
-console.log("subtitleASplit-> ", subtitleSplit);
+//console.log("subtitleASplit-> ", subtitleSplit);
 
 const subtitleAContainer = {
   hidden: {},
@@ -30,7 +29,6 @@ const subtitleAContainer = {
     transition: {
       staggerChildren: 0.1,
       delayChildren: 0.3,
-      duration: 0.3,
     },
   },
 };
