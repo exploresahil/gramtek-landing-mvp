@@ -1,21 +1,22 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { mapData } from "./data.db";
+import { useState, useRef, useEffect, useMemo } from "react";
+import { mapData, LocationData } from "./data.db";
 import "./style.scss";
 import TalukaMap from "@/components/home/successMap/TalukaMap";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
+import MapNav from "./nav/MapNav";
+
+//* A special ID for the aggregated view
+const ALL_ID = "all";
 
 export default function SuccessMapSection() {
-  const [selectedLocation, setSelectedLocation] = useState<string>(
-    mapData[0].id
-  );
-
-  //console.log("selectedLocation->", selectedLocation);
+  //* Default to the "all" aggregate
+  const [selectedLocation, setSelectedLocation] = useState<string>(ALL_ID);
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // close on outside click
+  //* close on outside click
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (
@@ -30,14 +31,39 @@ export default function SuccessMapSection() {
     return () => document.removeEventListener("mousedown", handler);
   }, [isOpen]);
 
-  const locationData = mapData.find(
-    (location) => location.id === selectedLocation
-  )!;
+  //* Compute the data for either the selected taluka or the “all” aggregate
+  const locationData: LocationData = useMemo(() => {
+    if (selectedLocation === ALL_ID) {
+      return mapData.reduce(
+        (acc, cur) => ({
+          id: ALL_ID,
+          name: "All Agents",
+          agents: acc.agents + cur.agents,
+          padsDistributed: acc.padsDistributed + cur.padsDistributed,
+          revenueGenerated: acc.revenueGenerated + cur.revenueGenerated,
+          beneficiaries: acc.beneficiaries + cur.beneficiaries,
+        }),
+        {
+          id: ALL_ID,
+          name: "All Agents",
+          agents: 0,
+          padsDistributed: 0,
+          revenueGenerated: 0,
+          beneficiaries: 0,
+        }
+      );
+    }
+    //* single location
+    return mapData.find((loc) => loc.id === selectedLocation)!;
+  }, [selectedLocation]);
 
-  const InfoItem = ({ label, value }: { label: string; value: string }) => (
-    <p>
-      <strong>{label}:</strong> {value}
-    </p>
+  const InfoItem = ({ label, value }: { label: string; value: number }) => (
+    <div className="info">
+      <h5>
+        <strong>{label}:</strong>
+      </h5>
+      <p>{value.toLocaleString()}</p>
+    </div>
   );
 
   const once = true;
@@ -45,15 +71,10 @@ export default function SuccessMapSection() {
   return (
     <section id="SuccessMapSection">
       <motion.h1
-        initial={{
-          opacity: 0,
-        }}
+        initial={{ opacity: 0 }}
         whileInView={{
           opacity: 1,
-          transition: {
-            ease: "easeInOut",
-            delay: 0.3,
-          },
+          transition: { ease: "easeInOut", delay: 0.3 },
         }}
         viewport={{ once }}
       >
@@ -61,58 +82,22 @@ export default function SuccessMapSection() {
       </motion.h1>
       <motion.div
         className="success_map_main"
-        initial={{
-          opacity: 0,
-          y: 20,
-        }}
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{
           opacity: 1,
           y: 0,
-          transition: {
-            ease: "easeInOut",
-            delay: 0.4,
-          },
+          transition: { ease: "easeInOut", delay: 0.4 },
         }}
         viewport={{ once }}
       >
-        <div className="select_container" ref={dropdownRef}>
-          <button
-            className="dropdown_toggle"
-            onClick={() => setIsOpen((o) => !o)}
-          >
-            {locationData.name}{" "}
-            <span className="arrow">{isOpen ? "▴" : "▾"}</span>
-          </button>
-
-          <AnimatePresence mode="sync">
-            {isOpen && (
-              <motion.ul
-                className="dropdown_menu"
-                initial={{ opacity: 0, height: 0 }}
-                animate={{
-                  opacity: 1,
-                  height: "auto",
-                  transition: { duration: 0.2 },
-                }}
-                exit={{ opacity: 0, height: 0 }}
-              >
-                {mapData.map((loc) => (
-                  <li key={loc.id}>
-                    <button
-                      className={loc.id === selectedLocation ? "active" : ""}
-                      onClick={() => {
-                        setSelectedLocation(loc.id);
-                        setIsOpen(false);
-                      }}
-                    >
-                      {loc.name}
-                    </button>
-                  </li>
-                ))}
-              </motion.ul>
-            )}
-          </AnimatePresence>
-        </div>
+        <MapNav
+          locationData={locationData}
+          selectedLocation={selectedLocation}
+          setSelectedLocation={setSelectedLocation}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          dropdownRef={dropdownRef}
+        />
 
         <div className="map_main_container">
           <div className="taluka_map_container">
@@ -122,11 +107,30 @@ export default function SuccessMapSection() {
             />
           </div>
           <div className="info_container">
-            <h2>{locationData.name}</h2>
-            <InfoItem label="Date" value={locationData.date} />
-            <InfoItem label="Education" value={locationData.education} />
-            <InfoItem label="Description" value={locationData.description} />
-            <InfoItem label="Info" value={locationData.info} />
+            <InfoItem
+              label="Total Pads Distributed"
+              value={locationData.padsDistributed}
+            />
+            <InfoItem
+              label="Total Revenue Generated"
+              value={locationData.revenueGenerated}
+            />
+            <InfoItem
+              label="Total Beneficiaries"
+              value={locationData.beneficiaries}
+            />
+            <InfoItem
+              label="Total Beneficiaries"
+              value={locationData.beneficiaries}
+            />
+            <InfoItem
+              label="Total Agents Employed"
+              value={locationData.agents}
+            />
+            <InfoItem
+              label="Total Agents Employed"
+              value={locationData.agents}
+            />
           </div>
         </div>
       </motion.div>

@@ -13,11 +13,11 @@
   }
 
   .title_container {
-    @include full_width;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: rem(14);
+    @include full_width;
 
     @include breakpoint(xxlarge) {
       gap: rem(40);

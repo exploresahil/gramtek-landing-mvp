@@ -1,39 +1,43 @@
 export interface LocationData {
   id: string;
   name: string;
-  date: string;
-  education: string;
-  description: string;
-  info: string;
+  agents: number;
+  padsDistributed: number;
+  revenueGenerated: number;
+  beneficiaries: number;
 }
 
 export const mapData: LocationData[] = [
-  {
-    id: "ramtek",
-    name: "Ramtek",
-    date: "03 April, 1971",
-    education: "LLB",
-    description:
-      "Participation in social, political, educational and cultural activities from school life, participation in agitations related to various issues of farmers, agricultural laborers.",
-    info: "He is married to Mrs. Pallavi Ashish Jaiswal and they have two sons named Shreyash and Aryan",
-  },
+  /* {
+    id: "saoner",
+    name: "Saoner",
+    agents: 50,
+    padsDistributed: 2100000,
+    revenueGenerated: 2100000,
+    beneficiaries: 60000,
+  }, */
   {
     id: "mauda",
     name: "Mauda",
-    date: "13 March, 1971",
-    education: "LLB2",
-    description:
-      "lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, repellat.",
-    info: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, repellat. lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, repellat.",
+    agents: 50,
+    padsDistributed: 2100000,
+    revenueGenerated: 2100000,
+    beneficiaries: 60000,
   },
   {
     id: "parseoni",
     name: "Parseoni",
-    date: "12 March, 1971",
-    education: "LLB3",
-    description:
-      "lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, repellat.",
-    info: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, repellat. lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, repellat.",
+    agents: 50,
+    padsDistributed: 1200000,
+    revenueGenerated: 1200000,
+    beneficiaries: 60000,
   },
-
+  {
+    id: "ramtek",
+    name: "Ramtek",
+    agents: 150,
+    padsDistributed: 2400000,
+    revenueGenerated: 2400000,
+    beneficiaries: 60000,
+  },
 ];
