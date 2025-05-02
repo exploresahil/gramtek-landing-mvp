@@ -40,6 +40,8 @@ const IMAGE_PROPS = {
   alt: "Distribution Model Mockup",
 };
 
+const once = true;
+
 const MockupImage = ({ src, className, motionProps }: MockupImageProps) => (
   <motion.div
     className={`image ${className}_container`}
@@ -53,7 +55,7 @@ const MockupImage = ({ src, className, motionProps }: MockupImageProps) => (
         delay: motionProps.animate.delay,
       },
     }}
-    viewport={{ once: true }}
+    viewport={{ once }}
   >
     <Image src={src} className={className} {...IMAGE_PROPS} />
   </motion.div>
@@ -104,8 +106,6 @@ const itemVariants: Variants = {
   hidden: { opacity: 0, y: 16 },
   visible: { opacity: 1, y: 0 },
 };
-
-const once = false;
 
 const DistributionMockup = () => (
   <section id="DistributionMockup">
@@ -166,13 +166,30 @@ const DistributionMockup = () => (
               ease: "easeInOut",
             },
           }}
+          viewport={{ once }}
         >
           {MockupData.descriptionOne}
           <br />
           <br />
           {MockupData.descriptionTwo}
         </motion.p>
-        <Link href={MockupData.btn.link}>{MockupData.btn.text}</Link>
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: {
+              delay: 0.4,
+              ease: "easeInOut",
+            },
+          }}
+          viewport={{ once }}
+        >
+          <Link href={MockupData.btn.link}>{MockupData.btn.text}</Link>
+        </motion.div>
       </div>
     </div>
   </section>

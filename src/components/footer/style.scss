@@ -1,0 +1,113 @@
+@use "@/app/scss/abstracts" as *;
+
+#Footer {
+  display: flex;
+  flex-direction: column;
+  font-family: $syne;
+
+  .footer_top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(40);
+    @include full_width;
+    background-color: $c_background_footer;
+    padding-block: rem(60);
+
+    @include breakpoint(medium) {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr 1fr;
+      align-items: end;
+      padding-block: rem(80);
+    }
+
+    @include breakpoint(xlarge) {
+      padding-block: rem(100);
+    }
+
+    .footer_socials {
+      display: flex;
+      gap: rem(20);
+
+      $svg_size: rem(40);
+      $svg_size_med: rem(30);
+      $svg_size_xlar: rem(40);
+
+      @include breakpoint(medium) {
+        gap: rem(10);
+      }
+
+      a {
+        svg {
+          width: $svg_size;
+          height: $svg_size;
+          border: rem(2) solid rgba(10, 20, 47, 0.1);
+          background-color: rgba(255, 255, 255, 0.1);
+          border-radius: rem(100);
+
+          @include breakpoint(medium) {
+            width: $svg_size_med;
+            height: $svg_size_med;
+          }
+
+          @include breakpoint(xlarge) {
+            width: $svg_size_xlar;
+            height: $svg_size_xlar;
+          }
+        }
+      }
+    }
+
+    .footer_brand {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+
+      p {
+        font-size: rem(14);
+      }
+
+      a {
+        text-decoration: underline;
+        font-weight: 700;
+        text-align: center;
+      }
+    }
+
+    .footer_nav {
+      margin-top: rem(20);
+      display: flex;
+      gap: rem(28);
+      font-size: rem(14);
+
+      @include breakpoint(medium) {
+        justify-content: flex-end;
+        margin-top: rem(0);
+
+        a {
+          width: max-content;
+        }
+      }
+    }
+  }
+
+  .footer_bottom {
+    display: flex;
+    justify-content: center;
+    padding-block: rem(16);
+    text-align: center;
+    background-color: $c_background_footer_bottom;
+    @include full_width;
+    color: $c_text_accent;
+    font-size: rem(14);
+
+    p {
+      max-width: 26ch;
+      font-weight: 100;
+
+      @include breakpoint(medium) {
+        max-width: max-content;
+      }
+    }
+  }
+}

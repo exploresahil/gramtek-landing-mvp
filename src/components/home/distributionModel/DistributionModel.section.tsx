@@ -27,7 +27,7 @@ const itemVariants: Variants = {
   visible: { opacity: 1, y: 0 },
 };
 
-const once = false;
+const once = true;
 
 const DistributionModelSection = () => {
   return (

@@ -14,6 +14,7 @@ import Header from "@/components/header/Header";
 import { ErrorBoundary } from "react-error-boundary";
 import ReactLenis from "lenis/react";
 import "lenis/dist/lenis.css";
+import Footer from "@/components/footer/Footer";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -41,6 +42,7 @@ export default function RootLayout({
           <ErrorBoundary fallback={<div>Something went wrong</div>}>
             <Header />
             {children}
+            <Footer />
           </ErrorBoundary>
         </body>
       </ReactLenis>

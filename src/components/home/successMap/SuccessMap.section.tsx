@@ -11,7 +11,7 @@ export default function SuccessMapSection() {
     mapData[0].id
   );
 
-  console.log("selectedLocation->", selectedLocation);
+  //console.log("selectedLocation->", selectedLocation);
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
