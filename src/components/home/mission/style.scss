@@ -124,21 +124,19 @@
     gap: rem(8);
 
     @include breakpoint(medium) {
-      padding-inline: 4vw;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: rem(10);
+      justify-content: space-between;
+      gap: rem(20);
     }
 
     @include breakpoint(xlarge) {
-      padding-inline: 4vw;
-      gap: rem(10);
+      gap: rem(40);
     }
 
     @include breakpoint(xxlarge) {
       margin-top: rem(80);
-      padding-inline: 8vw;
-      gap: rem(10);
+      gap: 2%;
     }
 
     .card {
@@ -231,13 +229,14 @@
         font-size: rem(24);
         font-weight: 500;
         text-align: center;
+        width: min-content;
 
         @include breakpoint(medium) {
           font-size: rem(24);
         }
 
         @include breakpoint(xlarge) {
-          font-size: rem(28);
+          font-size: rem(30);
         }
 
         @include breakpoint(xxlarge) {

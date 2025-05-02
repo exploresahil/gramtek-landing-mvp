@@ -2,6 +2,7 @@
 
 #DistributionPackage {
   margin-top: rem(100);
+  overflow-x: clip;
 
   @include breakpoint(medium) {
     margin-top: rem(40);
