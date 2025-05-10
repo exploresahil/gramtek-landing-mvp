@@ -17,6 +17,14 @@ export const mapData: LocationData[] = [
     beneficiaries: 60000,
   }, */
   {
+    id: "ramtek",
+    name: "Ramtek",
+    agents: 150,
+    padsDistributed: 2400000,
+    revenueGenerated: 2400000,
+    beneficiaries: 60000,
+  },
+  {
     id: "mauda",
     name: "Mauda",
     agents: 50,
@@ -32,12 +40,5 @@ export const mapData: LocationData[] = [
     revenueGenerated: 1200000,
     beneficiaries: 60000,
   },
-  {
-    id: "ramtek",
-    name: "Ramtek",
-    agents: 150,
-    padsDistributed: 2400000,
-    revenueGenerated: 2400000,
-    beneficiaries: 60000,
-  },
+
 ];

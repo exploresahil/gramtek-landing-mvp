@@ -1,0 +1,11 @@
+@use "@/app/scss/abstracts" as *;
+
+#Gramtek {
+  background-color: $c_background_gramtek_section;
+  padding-block: $p_block_section;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: rem(14);
+  @include full_width;
+}

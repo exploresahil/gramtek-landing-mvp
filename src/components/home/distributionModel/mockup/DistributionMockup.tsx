@@ -1,10 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import { motion, Variants } from "motion/react";
+import { motion } from "motion/react";
 import ImageSize from "@/utils";
 import "./style.scss";
-import Link from "next/link";
+import {
+  descriptionAnimeFromRight,
+  viewportMargin,
+  viewportOnce,
+} from "@/utils/anim";
+import { TitleSplitText } from "@/components/common/title/AnimatedTitles";
+import { AnimatedButtonLink } from "@/components/common/button/AnimatedButton";
 
 interface MockupImageProps {
   src: string;
@@ -40,8 +46,6 @@ const IMAGE_PROPS = {
   alt: "Distribution Model Mockup",
 };
 
-const once = true;
-
 const MockupImage = ({ src, className, motionProps }: MockupImageProps) => (
   <motion.div
     className={`image ${className}_container`}
@@ -55,7 +59,7 @@ const MockupImage = ({ src, className, motionProps }: MockupImageProps) => (
         delay: motionProps.animate.delay,
       },
     }}
-    viewport={{ once }}
+    viewport={{ once: viewportOnce, margin: viewportMargin }}
   >
     <Image src={src} className={className} {...IMAGE_PROPS} />
   </motion.div>
@@ -90,23 +94,6 @@ const motionRightData = {
   },
 };
 
-const subtitleSplit = MockupData.subtitle.split(" ");
-
-const containerVariants: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.3,
-    },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0 },
-};
-
 const DistributionMockup = () => (
   <section id="DistributionMockup">
     <div className="distribution_mockup_main">
@@ -138,58 +125,22 @@ const DistributionMockup = () => (
       </div>
 
       <div className="content_container">
-        <h2>
-          <motion.div
-            className="mainTitleSplit"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once }}
-          >
-            {subtitleSplit.map((word, i) => (
-              <motion.span key={i} variants={itemVariants}>
-                {word}
-              </motion.span>
-            ))}
-          </motion.div>
-        </h2>
+        <TitleSplitText text={MockupData.subtitle} />
         <motion.p
-          initial={{
-            opacity: 0,
-            x: 10,
-          }}
-          whileInView={{
-            opacity: 1,
-            x: 0,
-            transition: {
-              delay: 0.3,
-              ease: "easeInOut",
-            },
-          }}
-          viewport={{ once }}
+          variants={descriptionAnimeFromRight}
+          initial="hidden"
+          whileInView="animate"
+          viewport={{ once: viewportOnce, margin: viewportMargin }}
         >
           {MockupData.descriptionOne}
           <br />
           <br />
           {MockupData.descriptionTwo}
         </motion.p>
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-            transition: {
-              delay: 0.4,
-              ease: "easeInOut",
-            },
-          }}
-          viewport={{ once }}
-        >
-          <Link href={MockupData.btn.link}>{MockupData.btn.text}</Link>
-        </motion.div>
+        <AnimatedButtonLink
+          href={MockupData.btn.link}
+          text={MockupData.btn.text}
+        />
       </div>
     </div>
   </section>

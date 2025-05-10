@@ -1,0 +1,125 @@
+@use "@/app/scss/abstracts" as *;
+
+#TitleSplitText {
+  font-family: $nunito;
+  font-weight: 700;
+  font-style: italic;
+  color: $c_text_primary;
+  text-align: center;
+  font-size: rem(30);
+
+  @include breakpoint(medium) {
+    font-size: rem(40);
+  }
+
+  @include breakpoint(large) {
+    font-size: rem(36);
+  }
+
+  @include breakpoint(xlarge) {
+    font-size: rem(30);
+    font-weight: 600;
+  }
+
+  @include breakpoint(xxlarge) {
+    font-size: rem(60);
+  }
+
+  .mainTitleSplit {
+    display: flex;
+    column-gap: rem(10);
+    flex-wrap: wrap;
+    text-align: center;
+    align-items: center;
+
+    @include breakpoint(medium) {
+      column-gap: rem(14);
+    }
+
+    @include breakpoint(large) {
+      column-gap: rem(10);
+    }
+
+    @include breakpoint(xlarge) {
+      column-gap: rem(10);
+    }
+  }
+}
+
+#FadeInTitle {
+  font-family: $syne;
+  font-weight: 100;
+
+  font-size: rem(18);
+  color: $c_text_nav;
+
+  @include breakpoint(medium) {
+    font-size: rem(20);
+  }
+
+  @include breakpoint(large) {
+    font-size: rem(18);
+  }
+
+  @include breakpoint(xlarge) {
+    font-size: rem(28);
+  }
+
+  @include breakpoint(xxlarge) {
+    font-size: rem(40);
+  }
+}
+
+#FadeInTitleSmall {
+  font-family: $syne;
+  font-weight: 400;
+  font-size: rem(16);
+  color: $c_text_secondary;
+
+  @include breakpoint(large) {
+    max-width: 80%;
+  }
+
+  @include breakpoint(xlarge) {
+    font-size: rem(22);
+  }
+
+  @include breakpoint(xxlarge) {
+    font-size: rem(36);
+  }
+}
+
+#FadeInParagraph {
+  font-size: rem(16);
+  text-align: center;
+  color: $c_text_secondary;
+
+  @include breakpoint(medium) {
+    font-size: rem(18);
+    max-width: 60ch;
+  }
+
+  @include breakpoint(large) {
+    font-size: rem(16);
+  }
+
+  @include breakpoint(xxlarge) {
+    font-size: rem(30);
+    max-width: 80ch;
+  }
+}
+
+#FadeInParagraphFromRight {
+  font-family: $syne;
+  font-weight: 400;
+  font-size: rem(16);
+  color: $c_text_secondary;
+
+  @include breakpoint(xlarge) {
+    font-size: rem(22);
+  }
+
+  @include breakpoint(xxlarge) {
+    font-size: rem(36);
+  }
+}

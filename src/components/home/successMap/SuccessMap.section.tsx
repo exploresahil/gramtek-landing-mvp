@@ -6,13 +6,15 @@ import "./style.scss";
 import TalukaMap from "@/components/home/successMap/TalukaMap";
 import { motion } from "motion/react";
 import MapNav from "./nav/MapNav";
+import { viewportMargin, viewportOnce } from "@/utils/anim";
+import { FadeInTitle } from "@/components/common/title/AnimatedTitles";
 
 //* A special ID for the aggregated view
 const ALL_ID = "all";
 
 export default function SuccessMapSection() {
   //* Default to the "all" aggregate
-  const [selectedLocation, setSelectedLocation] = useState<string>(ALL_ID);
+  const [selectedLocation, setSelectedLocation] = useState<string>("ramtek");
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -66,20 +68,10 @@ export default function SuccessMapSection() {
     </div>
   );
 
-  const once = true;
-
   return (
     <section id="SuccessMapSection">
-      <motion.h1
-        initial={{ opacity: 0 }}
-        whileInView={{
-          opacity: 1,
-          transition: { ease: "easeInOut", delay: 0.3 },
-        }}
-        viewport={{ once }}
-      >
-        Browse Our Success Map
-      </motion.h1>
+      <FadeInTitle text="Browse Our Success Map" />
+
       <motion.div
         className="success_map_main"
         initial={{ opacity: 0, y: 50 }}
@@ -88,7 +80,7 @@ export default function SuccessMapSection() {
           y: 0,
           transition: { ease: "easeInOut", delay: 0.4 },
         }}
-        viewport={{ once }}
+        viewport={{ once: viewportOnce, margin: viewportMargin }}
       >
         <MapNav
           locationData={locationData}

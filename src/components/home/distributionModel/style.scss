@@ -2,7 +2,7 @@
 
 #DistributionModelSection {
   background-color: $c_background_secondary;
-  padding-block: rem(60);
+  padding-block: $p_block_section;
   display: flex;
   flex-direction: column;
   gap: rem(0);
@@ -23,70 +23,8 @@
       gap: rem(40);
     }
 
-    h1 {
-      font-family: $syne;
-      font-weight: 400;
-      font-size: rem(16);
-      color: $c_text_secondary;
-
-      @include breakpoint(large) {
-        max-width: 80%;
-      }
-
-      @include breakpoint(xlarge) {
-        font-size: rem(22);
-      }
-
-      @include breakpoint(xxlarge) {
-        font-size: rem(36);
-      }
-    }
-
-    h2 {
-      font-family: $nunito;
-      font-weight: 700;
-      font-style: italic;
-      color: $c_text_primary;
-      text-align: center;
-      font-size: rem(30);
-
-      @include breakpoint(medium) {
-        font-size: rem(40);
-      }
-
-      @include breakpoint(large) {
-        font-size: rem(36);
-      }
-
-      @include breakpoint(xlarge) {
-        font-size: rem(30);
-        font-weight: 600;
-      }
-
-      @include breakpoint(xxlarge) {
-        font-size: rem(60);
-      }
-    }
-
     .mainTitleSplit {
-      display: flex;
-      column-gap: rem(10);
-      flex-wrap: wrap;
-      text-align: center;
       justify-content: center;
-      align-items: center;
-
-      @include breakpoint(medium) {
-        column-gap: rem(14);
-      }
-
-      @include breakpoint(large) {
-        column-gap: rem(10);
-      }
-
-      @include breakpoint(xlarge) {
-        column-gap: rem(10);
-      }
     }
   }
 

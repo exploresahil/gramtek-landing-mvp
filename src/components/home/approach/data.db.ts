@@ -15,7 +15,7 @@ export interface ApproachSectionData {
     };
 }
 
-const approachData: ApproachSectionData = {
+export const approachData: ApproachSectionData = {
     title: "Our Approach",
     subtitle: "Holistic Solutions Addressing\nthe Systemic Barriers",
     points: [
@@ -41,5 +41,3 @@ const approachData: ApproachSectionData = {
         href: "/login"
     }
 };
-
-export default approachData;

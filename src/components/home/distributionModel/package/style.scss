@@ -76,32 +76,12 @@
       flex-direction: column;
       gap: rem(10);
     }
-
-    .mainTitleSplit {
-      display: flex;
-      column-gap: rem(10);
-      flex-wrap: wrap;
-      text-align: center;
-
-      @include breakpoint(medium) {
-        column-gap: rem(14);
-      }
-
-      @include breakpoint(large) {
-        column-gap: rem(10);
-      }
-
-      @include breakpoint(xlarge) {
-        column-gap: rem(10);
-      }
-    }
   }
 
   .img_container {
     width: 100%;
     aspect-ratio: 1;
     position: relative;
-    overflow: hidden;
 
     @include breakpoint(medium) {
       margin-top: auto;

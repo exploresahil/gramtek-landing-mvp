@@ -82,7 +82,7 @@ const TalukaMap = ({ selected, setSelectedLocation }: TalukaMapProps) => {
   if (!mounted) return null;
 
   //* 3. Render everything
-  const getFill = (id: string) => (selected === id ? "#D6CCDF" : "#B7ABC6");
+  const getFill = (id: string) => (selected === id ? "#B7ABC6" : "#D6CCDF");
 
   const SvgTag = isMobile ? motion.svg : "svg";
 

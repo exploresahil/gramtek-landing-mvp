@@ -7,7 +7,7 @@
   justify-content: center;
   gap: rem(14);
   background-color: $c_button_light;
-  padding-block: rem(60);
+  padding-block: $p_block_section;
   @include full_width;
 
   @include breakpoint(medium) {
@@ -22,31 +22,9 @@
     gap: rem(40);
   }
 
-  h1,
   h3 {
     font-family: $syne;
     font-weight: 100;
-  }
-
-  h1 {
-    font-size: rem(18);
-    color: $c_text_nav;
-
-    @include breakpoint(medium) {
-      font-size: rem(20);
-    }
-
-    @include breakpoint(large) {
-      font-size: rem(18);
-    }
-
-    @include breakpoint(xlarge) {
-      font-size: rem(28);
-    }
-
-    @include breakpoint(xxlarge) {
-      font-size: rem(40);
-    }
   }
 
   h2 {
@@ -75,44 +53,7 @@
     }
 
     .mainTitleSplit {
-      display: flex;
-      column-gap: rem(10);
-      flex-wrap: wrap;
-      text-align: center;
       justify-content: center;
-      align-items: center;
-
-      @include breakpoint(medium) {
-        column-gap: rem(14);
-      }
-
-      @include breakpoint(large) {
-        column-gap: rem(10);
-      }
-
-      @include breakpoint(xlarge) {
-        column-gap: rem(10);
-      }
-    }
-  }
-
-  p {
-    font-size: rem(16);
-    text-align: center;
-    color: $c_text_secondary;
-
-    @include breakpoint(medium) {
-      font-size: rem(18);
-      max-width: 60ch;
-    }
-
-    @include breakpoint(large) {
-      font-size: rem(16);
-    }
-
-    @include breakpoint(xxlarge) {
-      font-size: rem(30);
-      max-width: 80ch;
     }
   }
 
