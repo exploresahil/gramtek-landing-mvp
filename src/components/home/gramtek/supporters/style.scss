@@ -8,16 +8,35 @@
   align-items: center;
   gap: rem(30);
 
+  @include breakpoint(medium) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-top: rem(20);
+  }
+
+  @include breakpoint(xlarge) {
+    padding-top: rem(80);
+  }
+
   .brand_container {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    transform-origin: bottom;
 
     .image_container {
       width: 80%;
       position: relative;
       aspect-ratio: 1/1;
+
+      @include breakpoint(medium) {
+        width: 50%;
+      }
+
+      @include breakpoint(xlarge) {
+        width: 40%;
+      }
 
       img {
         object-fit: contain;
@@ -25,10 +44,15 @@
     }
 
     h2 {
-      font-family: $nunito;
-      font-style: italic;
-      font-size: rem(30);
-      text-align: center;
+      .mainTitleSplit {
+        justify-content: center;
+      }
+    }
+
+    @include breakpoint(xlarge) {
+      svg {
+        max-width: 80%;
+      }
     }
   }
 
@@ -40,6 +64,18 @@
     h1 {
       font-family: $syne;
       font-weight: 700;
+    }
+
+    @include breakpoint(medium) {
+      a {
+        margin-top: rem(10);
+      }
+    }
+
+    @include breakpoint(xlarge) {
+      a {
+        margin-top: rem(20);
+      }
     }
   }
 }

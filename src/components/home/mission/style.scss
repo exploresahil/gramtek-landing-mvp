@@ -28,30 +28,6 @@
   }
 
   h2 {
-    font-family: $nunito;
-    font-weight: 700;
-    font-style: italic;
-    color: $c_text_primary;
-    text-align: center;
-    font-size: rem(30);
-
-    @include breakpoint(medium) {
-      font-size: rem(40);
-    }
-
-    @include breakpoint(large) {
-      font-size: rem(36);
-    }
-
-    @include breakpoint(xlarge) {
-      font-size: rem(30);
-      font-weight: 600;
-    }
-
-    @include breakpoint(xxlarge) {
-      font-size: rem(60);
-    }
-
     .mainTitleSplit {
       justify-content: center;
     }
@@ -72,7 +48,7 @@
     }
 
     @include breakpoint(xlarge) {
-      gap: rem(40);
+      gap: rem(50);
     }
 
     @include breakpoint(xxlarge) {
@@ -128,7 +104,7 @@
       }
 
       @include breakpoint(xlarge) {
-        gap: rem(60);
+        gap: rem(40);
         padding: rem(80) rem(10);
         border-radius: rem(16);
       }
@@ -200,6 +176,7 @@
         }
 
         @include breakpoint(xlarge) {
+          margin-top: rem(-20);
           font-size: rem(74);
         }
 
@@ -219,7 +196,7 @@
           }
 
           @include breakpoint(xlarge) {
-            font-size: rem(26);
+            font-size: rem(30);
           }
 
           @include breakpoint(xxlarge) {

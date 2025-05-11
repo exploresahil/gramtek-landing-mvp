@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   gap: rem(0);
+  overflow: clip;
 
   @include breakpoint(medium) {
     padding-block: rem(60) 0;
@@ -18,10 +19,6 @@
     align-items: center;
     gap: rem(14);
     @include full_width;
-
-    @include breakpoint(xxlarge) {
-      gap: rem(40);
-    }
 
     .mainTitleSplit {
       justify-content: center;

@@ -1,6 +1,6 @@
 @use "@/app/scss/abstracts" as *;
 
-#TitleSplitText {
+.TitleSplitText {
   font-family: $nunito;
   font-weight: 700;
   font-style: italic;
@@ -9,15 +9,11 @@
   font-size: rem(30);
 
   @include breakpoint(medium) {
-    font-size: rem(40);
-  }
-
-  @include breakpoint(large) {
-    font-size: rem(36);
+    font-size: rem(30);
   }
 
   @include breakpoint(xlarge) {
-    font-size: rem(30);
+    font-size: rem(40);
     font-weight: 600;
   }
 
@@ -46,7 +42,7 @@
   }
 }
 
-#FadeInTitle {
+.FadeInTitle {
   font-family: $syne;
   font-weight: 100;
 
@@ -70,7 +66,7 @@
   }
 }
 
-#FadeInTitleSmall {
+.FadeInTitleSmall {
   font-family: $syne;
   font-weight: 400;
   font-size: rem(16);
@@ -89,7 +85,7 @@
   }
 }
 
-#FadeInParagraph {
+.FadeInParagraph {
   font-size: rem(16);
   text-align: center;
   color: $c_text_secondary;
@@ -100,7 +96,7 @@
   }
 
   @include breakpoint(large) {
-    font-size: rem(16);
+    font-size: rem(22);
   }
 
   @include breakpoint(xxlarge) {
@@ -109,7 +105,7 @@
   }
 }
 
-#FadeInParagraphFromRight {
+.FadeInParagraphFromRight {
   font-family: $syne;
   font-weight: 400;
   font-size: rem(16);

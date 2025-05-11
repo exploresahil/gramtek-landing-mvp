@@ -15,7 +15,7 @@ import "./style.scss";
 export const TitleSplitText = ({ text }: { text: string }) => {
   const splitText = text.split(" ");
   return (
-    <h2 id="TitleSplitText">
+    <h2 className="TitleSplitText">
       <motion.div
         className="mainTitleSplit"
         variants={splitTextAime}
@@ -36,7 +36,7 @@ export const TitleSplitText = ({ text }: { text: string }) => {
 export const FadeInTitle = ({ text = "Hello World" }: { text: string }) => {
   return (
     <motion.h1
-      id="FadeInTitle"
+      className="FadeInTitle"
       variants={titleAnime}
       initial="hidden"
       whileInView="animate"
@@ -57,7 +57,7 @@ export const FadeInTitleSmall = ({
 }) => {
   return (
     <motion.h1
-      id="FadeInTitleSmall"
+      className="FadeInTitleSmall"
       variants={titleAnime}
       initial="hidden"
       whileInView="animate"
@@ -74,7 +74,7 @@ export const FadeInTitleSmall = ({
 export const FadeInParagraph = ({ text = "Hello World" }) => {
   return (
     <motion.p
-      id="FadeInParagraph"
+      className="FadeInParagraph"
       variants={descriptionAnime}
       initial="hidden"
       whileInView="animate"
@@ -91,7 +91,7 @@ export const FadeInParagraph = ({ text = "Hello World" }) => {
 export const FadeInParagraphFromRight = ({ text = "Hello World" }) => {
   return (
     <motion.p
-      id="FadeInParagraphFromRight"
+      className="FadeInParagraphFromRight"
       variants={descriptionAnimeFromRight}
       initial="hidden"
       whileInView="animate"

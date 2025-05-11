@@ -8,4 +8,14 @@
   align-items: center;
   gap: rem(14);
   @include full_width;
+
+  .FadeInParagraph {
+    @include breakpoint(large) {
+      max-width: 80ch;
+    }
+
+    @include breakpoint(xlarge) {
+      max-width: 100ch;
+    }
+  }
 }

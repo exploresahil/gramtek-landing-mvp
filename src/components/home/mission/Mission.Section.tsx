@@ -33,7 +33,7 @@ const missionData = {
     {
       icon: <CurrentDistributionIocon />,
       title: "Current Distribution",
-      numbers: "210*",
+      numbers: "8 lac",
       subtitle: "Pads/month",
     },
     {

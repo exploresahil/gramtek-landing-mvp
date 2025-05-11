@@ -1,0 +1,60 @@
+@use "@/app/scss/abstracts" as *;
+
+#SupportOurMission {
+  width: 100%;
+  margin-top: rem(60);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: rem(20);
+
+  @include breakpoint(large) {
+    margin-top: rem(80);
+  }
+
+  @include breakpoint(xlarge) {
+    margin-top: rem(100);
+  }
+
+  .FadeInParagraph {
+    @include breakpoint(large) {
+      max-width: 100ch;
+    }
+  }
+
+  .images {
+    margin-top: rem(10);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(20);
+
+    @include breakpoint(medium) {
+      flex-direction: row;
+    }
+
+    @include breakpoint(large) {
+      justify-content: space-between;
+      gap: rem(30);
+    }
+
+    @include breakpoint(xlarge) {
+      gap: rem(50);
+    }
+
+    .image_container {
+      width: 100%;
+      aspect-ratio: 3/2;
+      position: relative;
+
+      @include breakpoint(large) {
+        margin-top: rem(20);
+      }
+
+      img {
+        object-fit: contain;
+      }
+    }
+  }
+}

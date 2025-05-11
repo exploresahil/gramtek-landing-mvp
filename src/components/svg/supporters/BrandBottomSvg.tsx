@@ -1,6 +1,22 @@
+import { viewportMargin, viewportOnce } from "@/utils/anim";
+import { motion } from "motion/react";
+
 const BrandBottomSvg = () => {
   return (
-    <svg
+    <motion.svg
+      initial={{
+        opacity: 0,
+        scale: 0.8,
+      }}
+      whileInView={{
+        opacity: 1,
+        scale: 1,
+        transition: {
+          duration: 0.3,
+          ease: "easeInOut",
+        },
+      }}
+      viewport={{ once: viewportOnce, margin: viewportMargin }}
       width="580"
       height="61"
       viewBox="0 0 580 61"
@@ -49,7 +65,7 @@ const BrandBottomSvg = () => {
           />
         </filter>
       </defs>
-    </svg>
+    </motion.svg>
   );
 };
 
