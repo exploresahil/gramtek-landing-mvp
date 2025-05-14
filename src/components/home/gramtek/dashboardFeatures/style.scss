@@ -1,0 +1,151 @@
+@use "@/app/scss/abstracts" as *;
+
+#DashboardFeatures {
+  width: 100%;
+  margin-top: rem(20);
+  background-color: $c_background_secondary;
+  border-radius: rem(20);
+  padding: rem(20);
+  display: flex;
+  flex-direction: column;
+  gap: rem(20);
+
+  @include breakpoint(large) {
+    padding: rem(40);
+    margin-top: rem(80);
+  }
+
+  @include breakpoint(xlarge) {
+    gap: rem(40);
+    padding: rem(60);
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: rem(20);
+
+    @include breakpoint(large) {
+      gap: rem(30);
+    }
+
+    @include breakpoint(xlarge) {
+      gap: rem(50);
+    }
+
+    &_menu {
+      display: flex;
+      gap: rem(20);
+      font-family: $nunito;
+
+      @include breakpoint(large) {
+        font-size: rem(18);
+      }
+
+      @include breakpoint(large) {
+        gap: rem(30);
+      }
+
+      @include breakpoint(xlarge) {
+        gap: rem(40);
+        font-size: rem(20);
+      }
+
+      .option {
+        display: flex;
+        align-items: center;
+        gap: rem(5);
+        color: $c_options_menu;
+        width: max-content;
+        transition: font-weight 0.2s ease-in-out, width 0.2s ease-in-out;
+
+        span {
+          display: block;
+          width: rem(2);
+          height: 80%;
+          background-color: $c_options_menu;
+
+          @include breakpoint(xlarge) {
+            width: rem(3);
+            height: 70%;
+          }
+        }
+      }
+
+      .active {
+        font-weight: bold;
+      }
+    }
+
+    &_cards {
+      width: 100%;
+      height: 100%;
+      overflow-x: clip;
+      display: flex;
+
+      .sliderWrapper {
+        border-radius: rem(16);
+      }
+
+      .card {
+        background-color: $c_text_accent;
+        border-radius: rem(16);
+        overflow: hidden;
+        overflow: clip;
+        height: 100%;
+
+        &_title {
+          font-family: $syne;
+          font-size: rem(16);
+          font-weight: bold;
+          background-color: $c_accent_card;
+          padding: rem(10) rem(16);
+          color: $c_text_accent;
+
+          @include breakpoint(xlarge) {
+            font-size: rem(18);
+            padding: rem(12) rem(16);
+          }
+        }
+
+        &_desc {
+          padding-inline: rem(16);
+          padding-block: rem(30) rem(30);
+          display: flex;
+          flex-direction: column;
+          gap: rem(30);
+          justify-content: space-between;
+          font-family: $syne;
+          font-weight: 500;
+
+          @include breakpoint(xlarge) {
+            font-size: rem(18);
+          }
+        }
+      }
+    }
+
+    &_testimonials {
+      margin-top: rem(20);
+      align-self: center;
+      font-family: $nunito;
+      font-size: rem(16);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: rem(10);
+      width: 100%;
+      font-weight: 500;
+
+      @include breakpoint(xlarge) {
+        font-size: rem(18);
+        gap: rem(18);
+      }
+
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+}

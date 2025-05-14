@@ -116,6 +116,7 @@ const Hero = () => {
             fill
             sizes={ImageSize.banner}
             alt="hero_right"
+            loading="lazy"
           />
         </motion.div>
         <motion.div
@@ -139,6 +140,7 @@ const Hero = () => {
             fill
             sizes={ImageSize.banner}
             alt="hero_right"
+            loading="lazy"
           />
         </motion.div>
       </div>

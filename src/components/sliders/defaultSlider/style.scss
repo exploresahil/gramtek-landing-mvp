@@ -1,0 +1,53 @@
+@use "@/app/scss/abstracts" as *;
+
+.sliderMain {
+  width: 100%;
+  position: relative;
+}
+
+.sliderWrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.navButtons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.navButton {
+  background: $c_text_accent;
+  border: none;
+  border-radius: 50%;
+  padding: rem(8);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+
+  &:hover:not(:disabled) {
+    transform: scale(1.1);
+    background: darken($c_text_accent, 10%);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background: lighten($c_text_accent, 20%);
+  }
+}
+
+.sliderTrack {
+  display: flex;
+  height: 100%;
+}
+
+.slide {
+  flex-shrink: 0;
+}

@@ -64,7 +64,7 @@ export default function SuccessMapSection() {
       <h5>
         <strong>{label}:</strong>
       </h5>
-      <p>{value.toLocaleString()}</p>
+      <p>{value.toLocaleString("en-IN")}</p>
     </div>
   );
 

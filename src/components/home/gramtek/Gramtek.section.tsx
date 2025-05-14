@@ -7,6 +7,7 @@ import "./style.scss";
 import { gramtekData } from "./data.db";
 import Supporters from "./supporters/Supporters";
 import SupportOurMission from "./supportOurMission/SupportOurMission";
+import DashboardFeatures from "./dashboardFeatures/DashboardFeatures";
 
 const Gramtek = () => {
   return (
@@ -16,6 +17,7 @@ const Gramtek = () => {
       <FadeInParagraph text={gramtekData.description} />
       <Supporters />
       <SupportOurMission />
+      <DashboardFeatures />
     </section>
   );
 };

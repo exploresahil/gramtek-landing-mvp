@@ -1,6 +1,6 @@
 import { Variants } from "motion/react";
 
-export const viewportOnce = true;
+export const viewportOnce = false;
 export const viewportMargin = "-80px";
 
 export const titleAnime = {
@@ -116,4 +116,20 @@ export const AnimatedButtonVariants = {
       ease: "easeInOut",
     },
   },
+};
+
+export const sliderTrackVariants = {
+  animate: {
+    transition: {
+      staggerChildren: 0.15,
+      ease: "easeOut",
+      delay: 0.3,
+    },
+  },
+};
+
+export const slideVariants = {
+  initial: { opacity: 0, y: 40 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut", delay: 0.2, } },
+  exit: { opacity: 0, y: 40, transition: { duration: 0.3, ease: "easeIn" } },
 };

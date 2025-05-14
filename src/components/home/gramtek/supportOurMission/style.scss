@@ -47,13 +47,12 @@
       width: 100%;
       aspect-ratio: 3/2;
       position: relative;
+      border-radius: rem(20);
+      overflow: hidden;
+      overflow: clip;
 
       @include breakpoint(large) {
         margin-top: rem(20);
-      }
-
-      img {
-        object-fit: contain;
       }
     }
   }
