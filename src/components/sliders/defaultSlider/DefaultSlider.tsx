@@ -116,7 +116,6 @@ const DefaultSlider: React.FC<SliderProps> = ({
           onDragEnd={draggable ? handleDragEnd : undefined}
           animate={{ x: -currentIndex * step }}
           transition={{ type: "tween", duration: 0.5 }}
-          variants={sliderTrackVariants}
           initial={false}
         >
           <AnimatePresence initial={false}>
@@ -128,11 +127,6 @@ const DefaultSlider: React.FC<SliderProps> = ({
                   width: Math.max(0, slideWidth),
                   marginRight: idx === slides.length - 1 ? 0 : gap,
                 }}
-                variants={slideVariants}
-                initial="initial"
-                whileInView="animate"
-                viewport={{ once: viewportOnce, margin: viewportMargin }}
-                exit="exit"
               >
                 {child}
               </motion.div>
@@ -150,6 +144,7 @@ const DefaultSlider: React.FC<SliderProps> = ({
           >
             <ArrowLeft size={navBtnSize} />
           </button>
+          <div className="line" />
           <button
             className="navButton"
             onClick={handleNext}

@@ -71,10 +71,16 @@ export const FadeInTitleSmall = ({
   );
 };
 
-export const FadeInParagraph = ({ text = "Hello World" }) => {
+export const FadeInParagraph = ({
+  text = "Hello World",
+  className,
+}: {
+  text: string;
+  className?: string;
+}) => {
   return (
     <motion.p
-      className="FadeInParagraph"
+      className={`FadeInParagraph ${className}`}
       variants={descriptionAnime}
       initial="hidden"
       whileInView="animate"
@@ -88,10 +94,16 @@ export const FadeInParagraph = ({ text = "Hello World" }) => {
   );
 };
 
-export const FadeInParagraphFromRight = ({ text = "Hello World" }) => {
+export const FadeInParagraphFromRight = ({
+  text = "Hello World",
+  className,
+}: {
+  text: string;
+  className?: string;
+}) => {
   return (
     <motion.p
-      className="FadeInParagraphFromRight"
+      className={`FadeInParagraphFromRight ${className}`}
       variants={descriptionAnimeFromRight}
       initial="hidden"
       whileInView="animate"
