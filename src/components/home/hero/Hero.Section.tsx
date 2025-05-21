@@ -2,22 +2,9 @@
 
 import Link from "next/link";
 import "./style.scss";
-import Image from "next/image";
 import ImageSize from "@/utils";
 import { motion } from "motion/react";
-
-//*---------↓ Hero Content ↓---------*//
-
-const heroData = {
-  title: "Gramtek - A Public Distribution Solution",
-  subtitle: "Distributing Sanitary Pads for Rural India",
-  description:
-    "Gramtek is a non-profit organization dedicated to improving sanitary hygiene in underserved rural communities across India.",
-  btn: {
-    link: "/login",
-    text: "Get Involved",
-  },
-};
+import { heroData } from "./data.db";
 
 const subtitleSplit = heroData.subtitle.split(" ");
 
@@ -111,9 +98,8 @@ const Hero = () => {
           }}
           className="left_img"
         >
-          <Image
+          <img
             src="/assets/hero/hero-asset-01.png"
-            fill
             sizes={ImageSize.banner}
             alt="hero_right"
             loading="lazy"
@@ -135,9 +121,8 @@ const Hero = () => {
           }}
           className="right_img"
         >
-          <Image
+          <img
             src="/assets/hero/hero-asset-02.png"
-            fill
             sizes={ImageSize.banner}
             alt="hero_right"
             loading="lazy"

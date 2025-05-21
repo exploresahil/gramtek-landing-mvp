@@ -37,7 +37,7 @@ const SupportOurMission = () => {
             viewport={{ once: viewportOnce, margin: viewportMargin }}
             className="image_container"
           >
-            <Image src={img.src} fill sizes={ImageSize.card} alt={img.alt} />
+            <img src={img.src} sizes={ImageSize.card} alt={img.alt} />
           </motion.div>
         ))}
       </div>

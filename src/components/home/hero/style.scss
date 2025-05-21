@@ -10,6 +10,7 @@
   text-align: center;
   overflow: hidden;
   position: relative;
+  background-color: $c_background_primary;
   @include full_width;
 
   @include breakpoint(medium) {
@@ -194,6 +195,10 @@
       bottom: 0;
 
       img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        inset: 0;
         object-fit: contain;
         object-position: 0% 100%;
       }

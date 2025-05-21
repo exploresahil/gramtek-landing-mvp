@@ -12,33 +12,9 @@ import { AnimatePresence, motion } from "motion/react";
 import DefaultSlider from "@/components/sliders/defaultSlider/DefaultSlider";
 import useResponsive from "@/hooks/useResponsive";
 import { slideVariants, viewportMargin, viewportOnce } from "@/utils/anim";
-import { SubmitHandler, useForm } from "react-hook-form";
-
-type FormInputs = {
-  name: string;
-  email: string;
-  phone: string;
-};
+import GetPrisingForm from "./form/GetPrisingForm";
 
 const DashboardFeatures = () => {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<FormInputs>();
-
-  const onSubmit: SubmitHandler<FormInputs> = (data) => {
-    // Handle form submission here
-    try {
-      console.log(data);
-      // Reset the form after successful submission
-      reset();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   const [activeOption, setActiveOption] = useState(0);
   const [mounted, setMounted] = useState(false);
 
@@ -47,14 +23,6 @@ const DashboardFeatures = () => {
   }, []);
 
   const { isMobile, isTablet, isLaptop, isDesktop, isXLarge } = useResponsive();
-
-  //   console.log("isMobile->", isMobile);
-  //   console.log("isTablet->", isTablet);
-  //   console.log("isLaptop->", isLaptop);
-  //   console.log("isDesktop->", isDesktop);
-  //   console.log("isXLarge->", isXLarge);
-
-  //console.log("activeOption->", activeOption);
 
   if (!mounted) {
     return null;
@@ -65,35 +33,44 @@ const DashboardFeatures = () => {
       <TitleSplitText text={dashboardFeaturesData.title} />
       <div className="options">
         <div className="options_menu">
-          {dashboardFeaturesData.options.map((item, index) => {
-            return (
-              <button
-                key={`${item.title}-${index}`}
-                className={`option ${activeOption === index ? "active" : ""}`}
-                onClick={() => setActiveOption(index)}
-              >
-                <AnimatePresence mode="wait">
-                  {activeOption === index && (
-                    <motion.span
-                      key={index}
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={{
-                        opacity: 1,
-                        scale: 1,
-                        transition: { duration: 0.3, ease: "easeInOut" },
-                      }}
-                      exit={{
-                        opacity: 0,
-                        scale: 0,
-                        transition: { duration: 0.3, ease: "easeInOut" },
-                      }}
-                    ></motion.span>
-                  )}
-                </AnimatePresence>{" "}
-                {item.title}
-              </button>
-            );
-          })}
+          {dashboardFeaturesData.options.map((item, index) => (
+            <motion.button
+              key={`${item.title}-${index}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                transition: {
+                  delay: index * 0.2,
+                  duration: 0.3,
+                  ease: "easeInOut",
+                },
+              }}
+              viewport={{ once: viewportOnce, margin: viewportMargin }}
+              className={`option ${activeOption === index ? "active" : ""}`}
+              onClick={() => setActiveOption(index)}
+            >
+              <AnimatePresence mode="wait">
+                {activeOption === index && (
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{
+                      opacity: 1,
+                      scale: 1,
+                      transition: { duration: 0.3, ease: "easeInOut" },
+                    }}
+                    exit={{
+                      opacity: 0,
+                      scale: 0,
+                      transition: { duration: 0.3, ease: "easeInOut" },
+                    }}
+                  ></motion.span>
+                )}
+              </AnimatePresence>{" "}
+              {item.title}
+            </motion.button>
+          ))}
         </div>
 
         <motion.div
@@ -157,52 +134,7 @@ const DashboardFeatures = () => {
           text={dashboardFeaturesData.pricing.description}
         />
       </div>
-      <form onSubmit={handleSubmit(onSubmit)} className="pricing_form">
-        <div className="form_group">
-          <input
-            type="text"
-            placeholder="Your Name"
-            {...register("name", { required: "Name is required" })}
-          />
-          {errors.name && <span className="error">{errors.name.message}</span>}
-        </div>
-        {!isMobile && <div className="line" />}
-        <div className="form_group">
-          <input
-            type="email"
-            placeholder="Your Email"
-            {...register("email", {
-              required: "Email is required",
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: "Invalid email address",
-              },
-            })}
-          />
-          {errors.email && (
-            <span className="error">{errors.email.message}</span>
-          )}
-        </div>
-        {!isMobile && <div className="line" />}
-        <div className="form_group">
-          <input
-            type="tel"
-            placeholder="Phone"
-            {...register("phone", {
-              required: "Phone number is required",
-              pattern: {
-                value: /^[0-9]{10}$/,
-                message: "Please enter a valid 10-digit phone number",
-              },
-            })}
-          />
-          {errors.phone && (
-            <span className="error">{errors.phone.message}</span>
-          )}
-        </div>
-        {!isMobile && <div className="line" />}
-        <button type="submit">Submit</button>
-      </form>
+      <GetPrisingForm />
     </div>
   );
 };

@@ -1,0 +1,104 @@
+@use "@/app/scss/abstracts" as *;
+
+#ContactHero {
+  background-color: $c_background_gramtek_section;
+  padding-block: $p_block_section;
+  display: flex;
+  flex-direction: column;
+  @include full_width;
+
+  @include breakpoint(medium) {
+    flex-direction: column;
+    height: 100vh;
+    height: 80dvh;
+    justify-content: center;
+  }
+
+  @include breakpoint(large) {
+    height: auto;
+  }
+
+  @include breakpoint(xlarge) {
+    padding-block: rem(150);
+    padding-inline: 20vw;
+  }
+
+  .contact_hero_container {
+    width: 100%;
+    background-color: $c_background_secondary;
+    padding: rem(20);
+    border-radius: rem(20);
+    display: flex;
+    flex-direction: column;
+    gap: rem(20);
+
+    @include breakpoint(medium) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: rem(30);
+    }
+
+    @include breakpoint(large) {
+      gap: rem(40);
+      padding: rem(40);
+    }
+
+    @include breakpoint(xlarge) {
+      display: flex;
+      flex-direction: row-reverse;
+      padding: rem(60);
+    }
+
+    .pricing_desc {
+      @include breakpoint(xlarge) {
+        max-width: 90%;
+      }
+    }
+
+    .right {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      @include breakpoint(xlarge) {
+        width: 80%;
+        gap: rem(50);
+      }
+
+      .top {
+        display: flex;
+        flex-direction: column;
+        gap: rem(10);
+
+        @include breakpoint(large) {
+          gap: rem(16);
+        }
+      }
+    }
+
+    .contact_info_container {
+      margin-top: rem(20);
+      display: flex;
+      flex-direction: column;
+      gap: rem(10);
+
+      @include breakpoint(large) {
+        margin-top: rem(10);
+      }
+
+      .FadeInTitle {
+        font-size: rem(22);
+        margin-bottom: rem(10);
+      }
+
+      p {
+        .info {
+          &_prefix {
+            display: flex;
+            gap: rem(5);
+          }
+        }
+      }
+    }
+  }
+}

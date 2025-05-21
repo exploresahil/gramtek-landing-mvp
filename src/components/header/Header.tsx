@@ -1,24 +1,7 @@
 import Link from "next/link";
 import Nav from "./nav/Nav";
 import "./style.scss";
-
-//*---------↓ Header Content ↓---------*//
-
-const headerData = {
-  logo: "Gramtek",
-  navData: [
-    {
-      title: "About",
-      href: "/about",
-    },
-    {
-      title: "Contact Us",
-      href: "/contact",
-    },
-  ],
-};
-
-const buttonText = "Login";
+import { buttonText, headerData } from "./data.db";
 
 const Header = () => {
   return (

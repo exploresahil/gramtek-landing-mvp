@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import MenuIcon from "@/components/svg/MenuIcon";
 import MenuCloseIcon from "@/components/svg/MenuCloseIcon";
+import { useLenis } from "lenis/react";
 
 type NavItem = {
   title: string;
@@ -22,6 +23,8 @@ const Nav: React.FC<NavProps> = ({ navItems, buttonText }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { isMobile, isTablet } = useResponsive();
   const [mounted, setMounted] = useState(false);
+
+  const lenis = useLenis();
 
   useEffect(() => {
     setMounted(true);
@@ -44,13 +47,23 @@ const Nav: React.FC<NavProps> = ({ navItems, buttonText }) => {
    * Mobile/Tablet Navigation Menu
    * Renders when there are too many items for the current screen size
    */
+
   if (isMoreNav || isMoreAndTab) {
     return (
       <div id="MoreNav">
         <Link href="/login" className="more_login">
           {buttonText}
         </Link>
-        <button onClick={() => setIsOpen(true)}>
+        <button
+          onClick={() => {
+            setIsOpen(true);
+            lenis?.stop();
+
+            if (typeof window != "undefined" && window.document) {
+              document.body.style.overflow = "hidden";
+            }
+          }}
+        >
           <MenuIcon />
         </button>
         <AnimatePresence initial={false}>
@@ -72,7 +85,13 @@ const Nav: React.FC<NavProps> = ({ navItems, buttonText }) => {
                 },
               }}
             >
-              <button onClick={() => setIsOpen(false)}>
+              <button
+                onClick={() => {
+                  setIsOpen(false);
+                  lenis?.start();
+                  document.body.style.overflow = "unset";
+                }}
+              >
                 <MenuCloseIcon />
               </button>
               <div className="more_left">
@@ -94,7 +113,16 @@ const Nav: React.FC<NavProps> = ({ navItems, buttonText }) => {
                       opacity: 0,
                     }}
                   >
-                    <Link href={item.href} className="nav-item">
+                    <Link
+                      href={item.href}
+                      onClick={() => {
+                        setIsOpen(false);
+
+                        lenis?.start();
+                        document.body.style.overflow = "unset";
+                      }}
+                      className="nav-item"
+                    >
                       {item.title}
                     </Link>
                   </motion.div>

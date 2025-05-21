@@ -9,7 +9,7 @@ import {
   TitleSplitText,
 } from "@/components/common/title/AnimatedTitles";
 
-const TITLE = {
+const DistributionModelData = {
   title: "Our Solution",
   subtitle: "Public Distribution Model",
 };
@@ -19,8 +19,8 @@ const DistributionModelSection = () => {
     <>
       <div id="DistributionModelSection">
         <div className="title_container">
-          <FadeInTitleSmall text={TITLE.title} />
-          <TitleSplitText text={TITLE.subtitle} />
+          <FadeInTitleSmall text={DistributionModelData.title} />
+          <TitleSplitText text={DistributionModelData.subtitle} />
         </div>
         <DistributionMockup />
         <DistributionPackage />

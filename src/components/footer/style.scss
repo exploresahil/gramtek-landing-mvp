@@ -15,8 +15,6 @@
     @include full_width;
 
     @include breakpoint(medium) {
-      display: grid;
-      grid-template-columns: 1fr 1.6fr 1fr;
       align-items: end;
       padding-block: rem(80);
     }
@@ -59,6 +57,7 @@
     }
 
     .footer_brand {
+      width: 100%;
       align-items: center;
       display: flex;
       flex-direction: column;
@@ -67,7 +66,8 @@
         font-size: rem(14);
       }
 
-      a {
+      a,
+      .brand {
         text-decoration: underline;
         font-weight: 700;
         text-align: center;

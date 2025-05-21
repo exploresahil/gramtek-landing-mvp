@@ -51,6 +51,14 @@
       overflow: hidden;
       overflow: clip;
 
+      img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
       @include breakpoint(large) {
         margin-top: rem(20);
       }

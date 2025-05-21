@@ -1,7 +1,7 @@
 import { Variants } from "motion/react";
 
 export const viewportOnce = true;
-export const viewportMargin = "-80px";
+export const viewportMargin = "0px";
 
 export const titleAnime = {
   hidden: {

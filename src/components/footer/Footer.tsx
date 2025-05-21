@@ -6,6 +6,8 @@ const Footer = () => {
   return (
     <footer id="Footer">
       <div className="footer_top">
+        {/* When socials will be created */}
+        {/*
         <div className="footer_socials">
           {footerData.socials.map((social, index) => (
             <Link
@@ -16,19 +18,26 @@ const Footer = () => {
             >
               {social.icon()}
             </Link>
-          ))}
+          ))} 
         </div>
+        */}
         <div className="footer_brand">
           <p>A PRODUCT OF</p>
-          <Link href={footerData.brand.href}>{footerData.brand.name}</Link>
+          <p className="brand">{footerData.brand.name}</p>
+          {/* When Brand website is available */}
+          {/* <Link href={footerData.brand.href}>{footerData.brand.name}</Link> */}
         </div>
-        <div className="footer_nav">
+
+        {/* When footer nav will be created */}
+        {/*
+         <div className="footer_nav">
           {footerData.nav.map((nav, index) => (
             <Link href={nav.href} key={index}>
               {nav.title}
             </Link>
-          ))}
+          ))} 
         </div>
+        */}
       </div>
       <div className="footer_bottom">
         <p>{footerData.footer}</p>

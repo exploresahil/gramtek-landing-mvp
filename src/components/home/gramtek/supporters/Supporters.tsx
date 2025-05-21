@@ -36,9 +36,8 @@ const Supporters = () => {
           viewport={{ once: viewportOnce, margin: viewportMargin }}
           className="image_container"
         >
-          <Image
+          <img
             src={supportersData.brand}
-            fill
             sizes={ImageSize.card}
             alt="hero_right"
           />

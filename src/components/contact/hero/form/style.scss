@@ -1,0 +1,112 @@
+@use "@/app/scss/abstracts" as *;
+#ContactHero {
+  .contact_form {
+    display: flex;
+    flex-direction: column;
+    gap: rem(16);
+    font-family: $nunito;
+    font-size: rem(14);
+
+    //* variables
+    $padding: rem(12) rem(16);
+    $border_radius: rem(16);
+    $padding_l: rem(12) rem(28);
+    $border_radius_l: rem(20);
+    $padding_xl: rem(12) rem(34);
+
+    @include breakpoint(medium) {
+      gap: rem(10);
+    }
+
+    @include breakpoint(large) {
+      gap: rem(16);
+    }
+
+    @include breakpoint(xlarge) {
+      width: 80%;
+      gap: rem(20);
+    }
+
+    .form_group_container {
+      display: flex;
+      flex-direction: column;
+      gap: rem(10);
+
+      @include breakpoint(medium) {
+        gap: rem(10);
+      }
+
+      @include breakpoint(large) {
+        gap: rem(16);
+      }
+
+      @include breakpoint(xlarge) {
+        gap: rem(20);
+      }
+    }
+
+    .form_group {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: rem(10);
+
+      input,
+      textarea {
+        width: 100%;
+        border: none;
+        outline: none;
+        padding: $padding;
+        border-radius: $border_radius;
+        resize: none;
+
+        &::placeholder {
+          color: #a3aac2;
+        }
+      }
+
+      .error {
+        font-family: $nunito;
+        font-size: rem(14);
+        color: $c_red;
+        opacity: 0.6;
+        background-color: hsl(from $c_background_client h s l / 0.75);
+        border-radius: rem(10);
+        padding: rem(5) rem(10);
+
+        @include breakpoint(medium) {
+          top: calc(100% + rem(5));
+          left: rem(10);
+        }
+      }
+    }
+
+    .line {
+      width: rem(3);
+      background-color: #c2c7d0;
+    }
+
+    button[type="submit"] {
+      background-color: $c_button_dark;
+      color: $c_text_accent;
+      padding: $padding;
+      border-radius: $border_radius;
+      @include breakpoint(medium) {
+        height: fit-content;
+      }
+
+      @include breakpoint(large) {
+        padding: $padding_l;
+
+        &:hover {
+          background-color: $c_button_dark_extra;
+        }
+      }
+
+      @include breakpoint(xlarge) {
+        width: fit-content;
+        padding: $padding_xl;
+      }
+    }
+  }
+}

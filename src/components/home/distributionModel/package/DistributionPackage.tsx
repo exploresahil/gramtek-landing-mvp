@@ -1,27 +1,12 @@
 import ImageSize from "@/utils";
-import Image from "next/image";
 import "./style.scss";
-import { motion, Variants } from "motion/react";
+import { motion } from "motion/react";
 import { viewportMargin, viewportOnce } from "@/utils/anim";
 import {
-  FadeInTitle,
   FadeInTitleSmall,
   TitleSplitText,
 } from "@/components/common/title/AnimatedTitles";
-
-const DistributionModelSectionData = {
-  img: "/assets/distribution/package_right_edited.png",
-  title: "Quality & Community Feedback",
-  subtitle: "Her Comfort, Our Commitment",
-  descriptionOne:
-    "At Gramtek, we believe access to safe, high-quality sanitary pads is just as important as ensuring their availability. We make sure pads pass BIS Standards as per IS 5405:2019 .",
-  descriptionTwo:
-    "To ensure our pads meet the needs of women in remote villages, we",
-  btn: {
-    link: "/login",
-    text: "Learn More",
-  },
-};
+import { DistributionModelSectionData } from "./data.db";
 
 const DistributionPackage = () => {
   return (
@@ -45,10 +30,9 @@ const DistributionPackage = () => {
         viewport={{ once: viewportOnce, margin: viewportMargin }}
         className="img_container"
       >
-        <Image
+        <img
           src={DistributionModelSectionData.img}
           alt="Distribution Model"
-          fill
           sizes={ImageSize.banner}
         />
       </motion.div>

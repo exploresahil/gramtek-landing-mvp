@@ -7,6 +7,7 @@ header {
   align-items: center;
   position: relative;
   z-index: 100;
+  background-color: $c_background_primary;
   @include full_width;
 
   @include breakpoint(medium) {

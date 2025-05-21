@@ -11,6 +11,7 @@ import {
 } from "@/utils/anim";
 import { TitleSplitText } from "@/components/common/title/AnimatedTitles";
 import { AnimatedButtonLink } from "@/components/common/button/AnimatedButton";
+import { MOCKUP, MockupData } from "./data.db";
 
 interface MockupImageProps {
   src: string;
@@ -20,24 +21,6 @@ interface MockupImageProps {
     animate: Record<string, number>;
   };
 }
-
-const MOCKUP = {
-  mid: "/assets/distribution/gramtek_mockup_mid.png",
-  left: "/assets/distribution/gramtek_mockup_left.png",
-  right: "/assets/distribution/gramtek_mockup_right.png",
-};
-
-const MockupData = {
-  subtitle: "Simple, Effective & Scalable",
-  descriptionOne:
-    "Gramtek's innovative distribution model ensures that women and girls in remote and underserved areas have access to high-quality sanitary pads at affordable prices.",
-  descriptionTwo:
-    "By partnering with local community organizations and leveraging digital technologies, we established a deep connection with the villagers.",
-  btn: {
-    link: "/login",
-    text: "Explore Product Features",
-  },
-};
 
 const IMAGE_PROPS = {
   width: 1000,
@@ -61,7 +44,7 @@ const MockupImage = ({ src, className, motionProps }: MockupImageProps) => (
     }}
     viewport={{ once: viewportOnce, margin: viewportMargin }}
   >
-    <Image src={src} className={className} {...IMAGE_PROPS} />
+    <img src={src} className={className} {...IMAGE_PROPS} />
   </motion.div>
 );
 
