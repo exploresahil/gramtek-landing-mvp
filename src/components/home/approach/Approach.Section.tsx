@@ -1,6 +1,6 @@
 "use client";
 
-import ApproachDesign from "@/components/svg/ApproachDesign";
+import ApproachDesign from "@/components/svg/approach/ApproachDesign";
 import "./style.scss";
 import { approachData, ApproachSectionData } from "./data.db";
 import { motion } from "framer-motion";
@@ -18,6 +18,8 @@ import {
   viewportMargin,
 } from "@/utils/anim";
 import { AnimatedButtonLink } from "@/components/common/button/AnimatedButton";
+import { useEffect, useState } from "react";
+import ApproachDesignSafari from "@/components/svg/approach/ApproachDesignSafari";
 
 interface ApproachSectionProps {
   data?: ApproachSectionData;
@@ -26,10 +28,20 @@ interface ApproachSectionProps {
 const ApproachSection: React.FC<ApproachSectionProps> = ({
   data = approachData,
 }) => {
+  const [isSafari, setIsSafari] = useState(false);
+
+  useEffect(() => {
+    const ua = navigator.userAgent;
+    const isSafariBrowser = /^((?!chrome|android).)*safari/i.test(ua);
+    const isIOS = /iPad|iPhone|iPod/.test(ua);
+    const isBraveIOS = ua.includes("Brave") && isIOS;
+    setIsSafari(isSafariBrowser || isIOS || isBraveIOS);
+  }, []);
+
   return (
     <section id="ApproachSection">
       <div className="approach_degign">
-        <ApproachDesign />
+        {isSafari ? <ApproachDesignSafari /> : <ApproachDesign />}
       </div>
       <div className="approach_container">
         <FadeInTitleSmall text={data.title} />
