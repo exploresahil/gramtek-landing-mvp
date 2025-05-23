@@ -7,7 +7,7 @@ export const heroData = {
     description:
         "Gramtek is a non-profit organization dedicated to improving sanitary hygiene in underserved rural communities across India.",
     btn: {
-        link: "/login",
+        link: "/contact",
         text: "Get Involved",
     },
 };

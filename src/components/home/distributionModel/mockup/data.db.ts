@@ -11,7 +11,7 @@ export const MockupData = {
     descriptionTwo:
         "By partnering with local community organizations and leveraging digital technologies, we established a deep connection with the villagers.",
     btn: {
-        link: "/login",
+        link: "#DashboardFeatures",
         text: "Explore Product Features",
     },
 };

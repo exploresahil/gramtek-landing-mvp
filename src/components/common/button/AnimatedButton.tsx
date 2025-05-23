@@ -12,9 +12,11 @@ import {
 export const AnimatedButtonLink = ({
   href,
   text,
+  onClick,
 }: {
   href: string;
   text: string;
+  onClick?: () => void;
 }) => {
   return (
     <motion.div
@@ -24,7 +26,9 @@ export const AnimatedButtonLink = ({
       whileInView="visible"
       viewport={{ once: viewportOnce, margin: viewportMargin }}
     >
-      <Link href={href}>{text}</Link>
+      <Link href={href} onClick={onClick}>
+        {text}
+      </Link>
     </motion.div>
   );
 };

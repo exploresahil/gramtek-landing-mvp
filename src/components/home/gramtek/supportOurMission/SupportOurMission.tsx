@@ -6,7 +6,6 @@ import {
 } from "@/components/common/title/AnimatedTitles";
 import { supportOurMissionData } from "./data.db";
 import "./style.scss";
-import Image from "next/image";
 import { viewportMargin, viewportOnce } from "@/utils/anim";
 import ImageSize from "@/utils";
 import { motion } from "motion/react";

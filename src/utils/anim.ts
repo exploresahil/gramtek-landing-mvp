@@ -133,3 +133,32 @@ export const slideVariants = {
   animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut", delay: 0.2, } },
   exit: { opacity: 0, y: 40, transition: { duration: 0.3, ease: "easeIn" } },
 };
+
+export const motionLeftData = {
+  initial: { rotate: 0, x: 100, scale: 0.9, opacity: 0 },
+  animate: {
+    rotate: -10,
+    x: 10,
+    y: 5,
+    scale: 1,
+    opacity: 1,
+    delay: 0.4,
+  },
+};
+
+export const motionMidData = {
+  initial: { scale: 1, opacity: 0 },
+  animate: { scale: 1.2, opacity: 1, delay: 0.3 },
+};
+
+export const motionRightData = {
+  initial: { rotate: 0, x: -100, scale: 0.9, opacity: 0 },
+  animate: {
+    rotate: 10,
+    x: -10,
+    y: 5,
+    scale: 1,
+    opacity: 1,
+    delay: 0.4,
+  },
+};

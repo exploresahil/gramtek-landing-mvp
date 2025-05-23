@@ -8,7 +8,6 @@ import {
 import { supportersData } from "./data.db";
 import "./style.scss";
 import { AnimatedButtonLink } from "@/components/common/button/AnimatedButton";
-import Image from "next/image";
 import ImageSize from "@/utils";
 import BrandBottomSvg from "@/components/svg/supporters/BrandBottomSvg";
 import { motion } from "motion/react";
@@ -48,7 +47,10 @@ const Supporters = () => {
       <div className="info_container">
         <FadeInTitleSmall text={supportersData.title} />
         <FadeInParagraphFromRight text={supportersData.description} />
-        <AnimatedButtonLink href="/" text="Get Involved" />
+        <AnimatedButtonLink
+          href={supportersData.button.href}
+          text={supportersData.button.text}
+        />
       </div>
     </div>
   );

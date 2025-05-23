@@ -6,6 +6,10 @@ interface SupportersData {
     brand: string;
     brandTitle: string;
     brandBottom: React.FC;
+    button: {
+        text: string;
+        href: string;
+    };
 }
 
 export const supportersData: SupportersData = {
@@ -14,4 +18,8 @@ export const supportersData: SupportersData = {
     brand: "/assets/supporters/MahatvaLogo.png",
     brandTitle: "Mahatva Foundation",
     brandBottom: BrandBottomSvg,
+    button: {
+        text: "Get Involved",
+        href: "/contact",
+    }
 };

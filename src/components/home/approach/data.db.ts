@@ -38,6 +38,6 @@ export const approachData: ApproachSectionData = {
     ],
     cta: {
         text: "Get Involved",
-        href: "/login"
+        href: "/contact"
     }
 };
