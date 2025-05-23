@@ -51,7 +51,7 @@ const Nav: React.FC<NavProps> = ({ navItems, buttonText }) => {
   if (isMoreNav || isMoreAndTab) {
     return (
       <div id="MoreNav">
-        <Link href="/login" className="more_login">
+        <Link scroll={false} href="/login" className="more_login">
           {buttonText}
         </Link>
         <button
@@ -114,6 +114,7 @@ const Nav: React.FC<NavProps> = ({ navItems, buttonText }) => {
                     }}
                   >
                     <Link
+                      scroll={false}
                       href={item.href}
                       onClick={() => {
                         setIsOpen(false);
@@ -144,6 +145,7 @@ const Nav: React.FC<NavProps> = ({ navItems, buttonText }) => {
       <div className="left">
         {navItems.map((item, index) => (
           <Link
+            scroll={false}
             href={item.href}
             key={`nav-item-${item.title}-${index}`}
             className="nav-item"
@@ -152,7 +154,7 @@ const Nav: React.FC<NavProps> = ({ navItems, buttonText }) => {
           </Link>
         ))}
       </div>
-      <Link href="/login" className="login">
+      <Link scroll={false} href="/login" className="login">
         {buttonText}
       </Link>
     </nav>

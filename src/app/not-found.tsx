@@ -17,7 +17,9 @@ export default function NotFound() {
         <div className="bottom_container">
           <h2>{notFoundData.title}</h2>
           <p>{notFoundData.message}</p>
-          <Link href={notFoundData.buttonLink}>{notFoundData.buttonText}</Link>
+          <Link href={notFoundData.buttonLink} scroll={false}>
+            {notFoundData.buttonText}
+          </Link>
         </div>
       </section>
     </main>

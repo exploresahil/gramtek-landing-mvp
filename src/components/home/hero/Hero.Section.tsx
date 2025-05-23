@@ -78,7 +78,9 @@ const Hero = () => {
             transition: { ease: "easeInOut", delay: 0.8, duration: 0.5 },
           }}
         >
-          <Link href={heroData.btn.link}>{heroData.btn.text}</Link>
+          <Link scroll={false} href={heroData.btn.link}>
+            {heroData.btn.text}
+          </Link>
         </motion.div>
       </div>
       <div className="bg_container">

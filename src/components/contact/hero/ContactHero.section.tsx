@@ -72,7 +72,7 @@ const ContactHero = () => {
                 {item.prefix ? (
                   <span className="info_prefix">
                     <strong>{item.title}:</strong>{" "}
-                    <Link href={`${item.prefix}${item.value}`}>
+                    <Link scroll={false} href={`${item.prefix}${item.value}`}>
                       {item.value}
                     </Link>
                   </span>
@@ -136,7 +136,7 @@ const ContactHero = () => {
                 {item.prefix ? (
                   <span className="info_prefix">
                     <strong>{item.title}:</strong>{" "}
-                    <Link href={`${item.prefix}${item.value}`}>
+                    <Link scroll={false} href={`${item.prefix}${item.value}`}>
                       {item.value}
                     </Link>
                   </span>

@@ -11,6 +11,7 @@ const Footer = () => {
         <div className="footer_socials">
           {footerData.socials.map((social, index) => (
             <Link
+              scroll={false}
               href={social.href}
               title={social.title}
               key={index}
@@ -25,14 +26,14 @@ const Footer = () => {
           <p>A PRODUCT OF</p>
           <p className="brand">{footerData.brand.name}</p>
           {/* When Brand website is available */}
-          {/* <Link href={footerData.brand.href}>{footerData.brand.name}</Link> */}
+          {/* <Link scroll={false} href={footerData.brand.href}>{footerData.brand.name}</Link> */}
         </div>
 
         {/* When footer nav will be created */}
         {/*
          <div className="footer_nav">
           {footerData.nav.map((nav, index) => (
-            <Link href={nav.href} key={index}>
+            <Link scroll={false} href={nav.href} key={index}>
               {nav.title}
             </Link>
           ))} 

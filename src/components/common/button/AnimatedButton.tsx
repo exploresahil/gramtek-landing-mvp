@@ -26,7 +26,7 @@ export const AnimatedButtonLink = ({
       whileInView="visible"
       viewport={{ once: viewportOnce, margin: viewportMargin }}
     >
-      <Link href={href} onClick={onClick}>
+      <Link href={href} onClick={onClick} scroll={false}>
         {text}
       </Link>
     </motion.div>

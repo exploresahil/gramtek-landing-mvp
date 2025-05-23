@@ -6,7 +6,7 @@ import { buttonText, headerData } from "./data.db";
 const Header = () => {
   return (
     <header id="Header">
-      <Link href="/" className="logo">
+      <Link scroll={false} href="/" className="logo">
         {headerData.logo}
       </Link>
       <Nav navItems={headerData.navData} buttonText={buttonText} />
