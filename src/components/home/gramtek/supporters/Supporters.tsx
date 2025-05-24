@@ -12,6 +12,7 @@ import ImageSize from "@/utils";
 import BrandBottomSvg from "@/components/svg/supporters/BrandBottomSvg";
 import { motion } from "motion/react";
 import { viewportMargin, viewportOnce } from "@/utils/anim";
+import OptImage from "@/components/common/image/OptImage";
 
 const Supporters = () => {
   return (
@@ -35,10 +36,12 @@ const Supporters = () => {
           viewport={{ once: viewportOnce, margin: viewportMargin }}
           className="image_container"
         >
-          <img
+          <OptImage
+            width={500}
+            height={500}
             src={supportersData.brand}
             sizes={ImageSize.card}
-            alt="hero_right"
+            alt="Mahatva Foundation Logo"
           />
         </motion.div>
         <TitleSplitText text={supportersData.brandTitle} />

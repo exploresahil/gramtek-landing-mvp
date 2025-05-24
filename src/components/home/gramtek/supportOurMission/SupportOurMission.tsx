@@ -9,6 +9,7 @@ import "./style.scss";
 import { viewportMargin, viewportOnce } from "@/utils/anim";
 import ImageSize from "@/utils";
 import { motion } from "motion/react";
+import OptImage from "@/components/common/image/OptImage";
 
 const SupportOurMission = () => {
   return (
@@ -36,7 +37,13 @@ const SupportOurMission = () => {
             viewport={{ once: viewportOnce, margin: viewportMargin }}
             className="image_container"
           >
-            <img src={img.src} sizes={ImageSize.card} alt={img.alt} />
+            <OptImage
+              width={500}
+              height={500}
+              src={img.src}
+              sizes={ImageSize.card}
+              alt={img.alt}
+            />
           </motion.div>
         ))}
       </div>

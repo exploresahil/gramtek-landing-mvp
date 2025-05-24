@@ -194,13 +194,9 @@
       left: 0;
       bottom: 0;
 
-      img {
-        width: 100%;
-        height: 100%;
+      .opt_img_container {
         position: absolute;
-        inset: 0;
         object-fit: contain;
-        object-position: 0% 100%;
       }
     }
 
@@ -210,6 +206,11 @@
       left: -20%;
       //opacity: 0.5;
       transform-origin: bottom left;
+
+      .opt_img_container {
+        left: 0;
+        bottom: 0;
+      }
 
       @include breakpoint(medium) {
         width: 100%;
@@ -233,6 +234,11 @@
       right: 0;
       //opacity: 0.75;
       transform-origin: bottom right;
+
+      .opt_img_container {
+        right: 0;
+        bottom: 0;
+      }
 
       @include breakpoint(medium) {
         height: 32%;

@@ -36,35 +36,70 @@ export default function SuccessMapSection() {
   //* Compute the data for either the selected taluka or the “all” aggregate
   const locationData: LocationData = useMemo(() => {
     if (selectedLocation === ALL_ID) {
-      return mapData.reduce(
-        (acc, cur) => ({
-          id: ALL_ID,
-          name: "All Agents",
-          agents: acc.agents + cur.agents,
-          padsDistributed: acc.padsDistributed + cur.padsDistributed,
-          revenueGenerated: acc.revenueGenerated + cur.revenueGenerated,
-          beneficiaries: acc.beneficiaries + cur.beneficiaries,
-        }),
+      const total = mapData.reduce(
+        (acc, cur, index, array) => {
+          const isLast = index === array.length - 1;
+
+          return {
+            id: ALL_ID,
+            name: "Total",
+            agents: acc.agents + cur.agents,
+            padsDistributed: acc.padsDistributed + cur.padsDistributed,
+            publicMoneySaved: acc.publicMoneySaved + cur.publicMoneySaved,
+            beneficiaries: acc.beneficiaries + cur.beneficiaries,
+            employmentGenerated:
+              acc.employmentGenerated + cur.employmentGenerated,
+            renumerationDisbursed:
+              acc.renumerationDisbursed + cur.renumerationDisbursed,
+
+            // Instead of summing, calculate mean in the last iteration
+            reducedMenstrualHygieneRelatedInfectionsBy: isLast
+              ? (acc.reducedMenstrualHygieneRelatedInfectionsBy +
+                  cur.reducedMenstrualHygieneRelatedInfectionsBy) /
+                array.length
+              : acc.reducedMenstrualHygieneRelatedInfectionsBy +
+                cur.reducedMenstrualHygieneRelatedInfectionsBy,
+          };
+        },
         {
           id: ALL_ID,
-          name: "All Agents",
+          name: "Total",
           agents: 0,
           padsDistributed: 0,
-          revenueGenerated: 0,
+          publicMoneySaved: 0,
           beneficiaries: 0,
+          employmentGenerated: 0,
+          renumerationDisbursed: 0,
+          reducedMenstrualHygieneRelatedInfectionsBy: 0,
         }
       );
-    }
-    //* single location
-    return mapData.find((loc) => loc.id === selectedLocation)!;
-  }, [selectedLocation]);
 
-  const InfoItem = ({ label, value }: { label: string; value: number }) => (
+      return total;
+    }
+
+    // Single location
+    return mapData.find((loc) => loc.id === selectedLocation)!;
+  }, [selectedLocation, mapData]);
+
+  const InfoItem = ({
+    label,
+    value,
+    prefix,
+    suffix,
+  }: {
+    label: string;
+    value: number;
+    prefix?: string;
+    suffix?: string;
+  }) => (
     <div className="info">
       <h5>
         <strong>{label}:</strong>
       </h5>
-      <p>{value.toLocaleString("en-IN")}</p>
+      <p>
+        {prefix && <span>{prefix}</span>} {value.toLocaleString("en-IN")}
+        {suffix && <span>{suffix}</span>}
+      </p>
     </div>
   );
 
@@ -104,24 +139,29 @@ export default function SuccessMapSection() {
               value={locationData.padsDistributed}
             />
             <InfoItem
-              label="Total Revenue Generated"
-              value={locationData.revenueGenerated}
+              label="Public Money Saved"
+              value={locationData.publicMoneySaved}
             />
             <InfoItem
               label="Total Beneficiaries"
               value={locationData.beneficiaries}
+              suffix=" +"
             />
             <InfoItem
-              label="Total Beneficiaries"
-              value={locationData.beneficiaries}
+              label="Employment Generated"
+              value={locationData.employmentGenerated}
             />
             <InfoItem
-              label="Total Agents Employed"
-              value={locationData.agents}
+              label="Renumeration Disbursed"
+              value={locationData.renumerationDisbursed}
+              prefix="₹"
             />
             <InfoItem
-              label="Total Agents Employed"
-              value={locationData.agents}
+              label="Reduced Menstrual Hygiene - related infections by"
+              value={Math.round(
+                locationData.reducedMenstrualHygieneRelatedInfectionsBy
+              )}
+              suffix="%"
             />
           </div>
         </div>

@@ -15,7 +15,7 @@ import { TitleSplitText } from "@/components/common/title/AnimatedTitles";
 import { AnimatedButtonLink } from "@/components/common/button/AnimatedButton";
 import { MOCKUP, MockupData } from "./data.db";
 import { useLenisScrollTo } from "@/hooks/useLenisScrollTo";
-import { useEffect, useState } from "react";
+import OptImage from "@/components/common/image/OptImage";
 
 interface MockupImageProps {
   src: string;
@@ -25,13 +25,6 @@ interface MockupImageProps {
     animate: Record<string, number>;
   };
 }
-
-const IMAGE_PROPS = {
-  width: 1000,
-  height: 1000,
-  sizes: ImageSize.banner,
-  alt: "Distribution Model Mockup",
-};
 
 const MockupImage = ({ src, className, motionProps }: MockupImageProps) => (
   <motion.div
@@ -48,7 +41,14 @@ const MockupImage = ({ src, className, motionProps }: MockupImageProps) => (
     }}
     viewport={{ once: viewportOnce, margin: viewportMargin }}
   >
-    <img src={src} className={className} {...IMAGE_PROPS} />
+    <OptImage
+      src={src}
+      width={500}
+      height={500}
+      className={className}
+      alt="Distribution Model Mockup"
+      sizes={ImageSize.card}
+    />
   </motion.div>
 );
 

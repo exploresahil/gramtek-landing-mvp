@@ -102,6 +102,7 @@
 
         @include breakpoint(xlarge) {
           padding-block: rem(80);
+          row-gap: rem(70);
         }
 
         @include breakpoint(xxlarge) {
@@ -111,12 +112,36 @@
         .info {
           display: flex;
           flex-direction: column;
+          justify-content: space-between;
           gap: rem(10);
 
           h5 {
+            max-width: 86%;
             font-size: rem(14);
             color: $c_text_accent_secondary;
             font-weight: 300;
+
+            @include breakpoint(medium) {
+              max-width: 70%;
+            }
+
+            @include breakpoint(large) {
+              max-width: 60%;
+            }
+
+            @include breakpoint(xlarge) {
+              max-width: 50%;
+            }
+          }
+
+          &:nth-last-of-type(1) {
+            h5 {
+              max-width: 100%;
+
+              @include breakpoint(xlarge) {
+                max-width: 70%;
+              }
+            }
           }
 
           p {

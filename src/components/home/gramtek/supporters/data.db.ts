@@ -15,7 +15,7 @@ interface SupportersData {
 export const supportersData: SupportersData = {
     title: "Our Supporters",
     description: "Gramtek is grateful for the generous support of our donors, volunteers, and allies who share our vision of a world where every women and girl has access to the resources and support they need to cope up with their everyday routine",
-    brand: "/assets/supporters/MahatvaLogo.png",
+    brand: "MahatvaLogo.png",
     brandTitle: "Mahatva Foundation",
     brandBottom: BrandBottomSvg,
     button: {

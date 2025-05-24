@@ -102,7 +102,7 @@ const MapNav = ({
         className={selectedLocation === ALL_ID ? "active" : ""}
         onClick={() => setSelectedLocation(ALL_ID)}
       >
-        All Agents ({totalAgents})
+        Total ({totalAgents})
       </button>
     </div>
   );

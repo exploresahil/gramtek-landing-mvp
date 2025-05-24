@@ -103,7 +103,7 @@
           color: $c_text_accent;
 
           @include breakpoint(xlarge) {
-            font-size: rem(18);
+            font-size: rem(16);
             padding: rem(12) rem(16);
           }
         }
@@ -119,7 +119,7 @@
           font-weight: 500;
 
           @include breakpoint(xlarge) {
-            font-size: rem(18);
+            font-size: rem(16);
           }
         }
       }
@@ -159,7 +159,7 @@
     margin-block: rem(20);
     align-self: center;
     width: 90%;
-    height: rem(0.6);
+    height: rem(0.8);
     background-image: linear-gradient(
       to right,
       $c_button_dark 50%,

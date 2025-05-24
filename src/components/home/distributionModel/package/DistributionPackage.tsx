@@ -7,6 +7,7 @@ import {
   TitleSplitText,
 } from "@/components/common/title/AnimatedTitles";
 import { DistributionModelSectionData } from "./data.db";
+import OptImage from "@/components/common/image/OptImage";
 
 const DistributionPackage = () => {
   return (
@@ -30,7 +31,9 @@ const DistributionPackage = () => {
         viewport={{ once: viewportOnce, margin: viewportMargin }}
         className="img_container"
       >
-        <img
+        <OptImage
+          width={500}
+          height={500}
           src={DistributionModelSectionData.img}
           alt="Distribution Model"
           sizes={ImageSize.banner}

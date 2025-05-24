@@ -83,21 +83,31 @@ const DashboardFeatures = () => {
         >
           <DefaultSlider
             gap={
-              isXLarge
-                ? 40
-                : isDesktop
-                ? 30
-                : isLaptop
-                ? 36
+              isMobile
+                ? 10
                 : isTablet
                 ? 20
-                : isMobile
-                ? 10
+                : isLaptop
+                ? 36
+                : isDesktop
+                ? 38
+                : isXLarge
+                ? 40
                 : 10
             }
             activeOption={activeOption}
             visibleCount={
-              isDesktop ? 4 : isLaptop ? 3 : isTablet ? 3 : isMobile ? 1 : 1
+              isMobile
+                ? 1
+                : isTablet
+                ? 2
+                : isLaptop
+                ? 3
+                : isDesktop
+                ? 4
+                : isXLarge
+                ? 4
+                : 4
             }
           >
             {dashboardFeaturesData.options[activeOption].cards.map(

@@ -1,7 +1,7 @@
 export const MOCKUP = {
-    mid: "/assets/distribution/gramtek_mockup_mid.png",
-    left: "/assets/distribution/gramtek_mockup_left.png",
-    right: "/assets/distribution/gramtek_mockup_right.png",
+    mid: "gramtek_mockup_mid.png",
+    left: "gramtek_mockup_left.png",
+    right: "gramtek_mockup_right.png",
 };
 
 export const MockupData = {

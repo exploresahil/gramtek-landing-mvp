@@ -17,6 +17,7 @@ interface UseResponsiveReturn {
   isLaptop: boolean;
   isDesktop: boolean;
   isXLarge: boolean;
+  isMounted: boolean;
   useBreakpoint: (width: number) => Breakpoint;
 }
 
@@ -27,6 +28,8 @@ const useResponsive = (): UseResponsiveReturn => {
     }
     return null;
   });
+
+  const [isMounted, setIsMounted] = useState(false);
 
   const isMobile = breakpoint === "small";
   const isTablet = breakpoint === "medium";
@@ -43,6 +46,7 @@ const useResponsive = (): UseResponsiveReturn => {
 
     window.addEventListener("resize", handleWindowResize);
     handleWindowResize();
+    setIsMounted(true);
 
     return () => {
       window.removeEventListener("resize", handleWindowResize);
@@ -58,6 +62,7 @@ const useResponsive = (): UseResponsiveReturn => {
     isLaptop,
     isDesktop,
     isXLarge,
+    isMounted,
     useBreakpoint
   };
 };

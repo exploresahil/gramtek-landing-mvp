@@ -5,6 +5,8 @@ import "./style.scss";
 import ImageSize from "@/utils";
 import { motion } from "motion/react";
 import { heroData } from "./data.db";
+import OptImage from "@/components/common/image/OptImage";
+import useResponsive from "@/hooks/useResponsive";
 
 const subtitleSplit = heroData.subtitle.split(" ");
 
@@ -26,6 +28,11 @@ const wordVariant = {
 };
 
 const Hero = () => {
+  const { isMounted, isMobile, isTablet, isLaptop, isDesktop, isXLarge } =
+    useResponsive();
+
+  if (!isMounted) return null;
+
   return (
     <section id="Hero">
       <div className="hero_container">
@@ -100,11 +107,22 @@ const Hero = () => {
           }}
           className="left_img"
         >
-          <img
-            src="/assets/hero/hero-asset-01.png"
+          <OptImage
+            src="hero-asset-01.png"
+            width={
+              isMobile
+                ? 360
+                : isTablet
+                ? 500
+                : isDesktop
+                ? 700
+                : isXLarge
+                ? 1200
+                : 500
+            }
+            height={isMobile ? 94 : isTablet ? 119.4 : isDesktop ? 119.4 : 474}
+            loading="eager"
             sizes={ImageSize.banner}
-            alt="hero_right"
-            loading="lazy"
           />
         </motion.div>
         <motion.div
@@ -123,11 +141,22 @@ const Hero = () => {
           }}
           className="right_img"
         >
-          <img
-            src="/assets/hero/hero-asset-02.png"
+          <OptImage
+            src="hero-asset-02.png"
+            width={
+              isMobile
+                ? 180
+                : isTablet
+                ? 260
+                : isLaptop
+                ? 300
+                : isXLarge
+                ? 800
+                : 500
+            }
+            height={isMobile ? 182 : isTablet ? 182 : isLaptop ? 182 : 474}
+            loading="eager"
             sizes={ImageSize.banner}
-            alt="hero_right"
-            loading="lazy"
           />
         </motion.div>
       </div>
